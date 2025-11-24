@@ -1,0 +1,440 @@
+{
+  "entrants": [
+    {
+      "id": 11,
+      "name": "2024 Batch - Advertisement Withdrawn",
+      "batch_year": 2024,
+      "position": "No Appointments Made",
+      "department": "Multiple Departments",
+      "ministry": "UPSC Advertisement Withdrawn",
+      "state": "Delhi",
+      "photo_url": null,
+      "profile_summary": "UPSC advertisement for 45 positions at Joint Secretary, Director, and Deputy Secretary levels was issued on August 17, 2024 and withdrawn on August 20, 2024 (within 3 days) following massive opposition criticism. Main concerns: No reservation provisions for SC/ST/OBC/EWS communities, lack of transparency in selection process. Political reactions included strong opposition from Rahul Gandhi, RJD, TMC, DMK. Minister Jitendra Singh requested UPSC to withdraw citing PM Modi's commitment to social justice. Current status: Policy under review with no timeline for reissue.",
+      "educational_background": "Advertisement for 45 positions was withdrawn in August 2024",
+      "previous_experience": "Advertisement covered multiple ministries including Commerce, Agriculture, Financial Services, Revenue. Withdrawal followed concerns about: (1) Bypassing social justice principles with no reservations (2) Potential for ideological appointments (3) Lack of transparency (4) Opposition from both opposition parties and some NDA allies. Government promised revised framework with reservation provisions.",
+      "date_of_appointment": "2024-08-13",
+      "retirement_date": null,
+      "created_at": "2025-11-23 14:50:08",
+      "updated_at": "2025-11-23 14:50:08",
+      "categories": null,
+      "media_count": 0
+    },
+    {
+      "id": 12,
+      "name": "Scheme Inactive - 2022-2023",
+      "batch_year": 2022,
+      "position": "No Appointments",
+      "department": "N/A",
+      "ministry": "Lateral Entry Scheme Paused",
+      "state": "N/A",
+      "photo_url": null,
+      "profile_summary": "The lateral entry program was effectively paused/inactive during 2022-2023. No UPSC advertisements were issued and no appointments were made during this entire 2-year period. Contributing factors likely included COVID-19 pandemic's impact on government recruitment processes, ongoing policy review to assess performance of 2018 batch appointees, and increasing political concerns about the scheme's lack of reservation provisions and selection transparency. The scheme attempted revival in August 2024 with advertisement for 45 positions across Joint Secretary, Director, and Deputy Secretary levels, but was withdrawn within 3 days due to massive opposition criticism.",
+      "educational_background": "Scheme saw no activity during 2022-2023 period",
+      "previous_experience": "No UPSC advertisements issued, no appointments made during this 2-year period. Likely reasons: COVID-19 pandemic impact on recruitment, policy review of 2018 batch performance, growing political concerns about reservation provisions and transparency",
+      "date_of_appointment": "2022-01-01",
+      "retirement_date": null,
+      "created_at": "2025-11-23 15:09:42",
+      "updated_at": "2025-11-23 15:09:42",
+      "categories": null,
+      "media_count": 0
+    },
+    {
+      "id": 10,
+      "name": "Abhilasha Maheshwari",
+      "batch_year": 2021,
+      "position": "Joint Secretary",
+      "department": "Department of Economic Affairs",
+      "ministry": "Ministry of Finance",
+      "state": "Delhi",
+      "photo_url": null,
+      "profile_summary": "Economic policy expert with financial markets experience",
+      "educational_background": "Economics and finance background",
+      "previous_experience": "Financial sector professional with economic policy expertise",
+      "date_of_appointment": "2021-09-15",
+      "retirement_date": null,
+      "created_at": "2025-11-23 14:50:08",
+      "updated_at": "2025-11-23 14:50:08",
+      "categories": null,
+      "media_count": 0
+    },
+    {
+      "id": 1,
+      "name": "Amber Dubey",
+      "batch_year": 2018,
+      "position": "Joint Secretary",
+      "department": "Ministry of Civil Aviation",
+      "ministry": "Ministry of Commerce and Industry",
+      "state": "Delhi",
+      "photo_url": null,
+      "profile_summary": "Infrastructure and aviation policy expert with 23+ years at KPMG. Led drone policy framework, UDAN scheme, and MRO policy. Completed 3-year tenure (2019-2022) and returned to McKinsey. Delivered significant policy contributions despite facing challenges as lateral entrant.",
+      "educational_background": "B.Tech IIT Delhi, MBA, Former Partner at KPMG India",
+      "previous_experience": "Partner at KPMG India with 23+ years in consulting, infrastructure advisory, economic policy",
+      "date_of_appointment": "2019-11-01",
+      "retirement_date": null,
+      "created_at": "2025-11-23 14:50:08",
+      "updated_at": "2025-11-23 14:50:08",
+      "categories": "Finance & Banking,Finance & Banking,Finance & Banking,Finance & Banking",
+      "media_count": 4
+    },
+    {
+      "id": 4,
+      "name": "Arun Goel",
+      "batch_year": 2018,
+      "position": "Joint Secretary",
+      "department": "Department of Sports",
+      "ministry": "Ministry of Youth Affairs and Sports",
+      "state": "Delhi",
+      "photo_url": null,
+      "profile_summary": "Operations and sports administration expert with corporate management background",
+      "educational_background": "B.Tech IIT Kanpur, MBA, Former Corporate Executive",
+      "previous_experience": "Senior corporate executive with experience in operations management and sports administration",
+      "date_of_appointment": "2019-11-01",
+      "retirement_date": null,
+      "created_at": "2025-11-23 14:50:08",
+      "updated_at": "2025-11-23 14:50:08",
+      "categories": null,
+      "media_count": 1
+    },
+    {
+      "id": 5,
+      "name": "Dinesh Dayanand Jagdale",
+      "batch_year": 2018,
+      "position": "Joint Secretary",
+      "department": "Department of Financial Services",
+      "ministry": "Ministry of Finance",
+      "state": "Maharashtra",
+      "photo_url": null,
+      "profile_summary": "Banking and financial services expert with focus on credit policy and financial inclusion",
+      "educational_background": "Banking and Finance professional, Former banking executive",
+      "previous_experience": "Senior executive in banking sector with expertise in credit management and financial services",
+      "date_of_appointment": "2019-11-01",
+      "retirement_date": null,
+      "created_at": "2025-11-23 14:50:08",
+      "updated_at": "2025-11-23 14:50:08",
+      "categories": "Finance & Banking",
+      "media_count": 0
+    },
+    {
+      "id": 7,
+      "name": "Kumar Rajesh Chandra",
+      "batch_year": 2018,
+      "position": "Joint Secretary",
+      "department": "Department of Road Transport and Highways",
+      "ministry": "Ministry of Road Transport and Highways",
+      "state": "Delhi",
+      "photo_url": null,
+      "profile_summary": "Infrastructure and transport expert with highway development expertise",
+      "educational_background": "Engineering background, Infrastructure sector experience",
+      "previous_experience": "Infrastructure development and highway projects management",
+      "date_of_appointment": "2019-11-01",
+      "retirement_date": null,
+      "created_at": "2025-11-23 14:50:08",
+      "updated_at": "2025-11-23 14:50:08",
+      "categories": "Infrastructure",
+      "media_count": 0
+    },
+    {
+      "id": 3,
+      "name": "Rajeev Chandrasekhar",
+      "batch_year": 2018,
+      "position": "Joint Secretary",
+      "department": "Department of Revenue",
+      "ministry": "Ministry of Finance",
+      "state": "Delhi",
+      "photo_url": null,
+      "profile_summary": "Tax and revenue expert with extensive experience in GST implementation and revenue policy",
+      "educational_background": "Chartered Accountant, Former Partner at Ernst & Young India",
+      "previous_experience": "Partner at EY India with specialization in tax policy, revenue administration and indirect taxation",
+      "date_of_appointment": "2019-11-01",
+      "retirement_date": null,
+      "created_at": "2025-11-23 14:50:08",
+      "updated_at": "2025-11-23 14:50:08",
+      "categories": "Finance & Banking",
+      "media_count": 1
+    },
+    {
+      "id": 2,
+      "name": "Saurabh Mishra",
+      "batch_year": 2018,
+      "position": "Joint Secretary",
+      "department": "Department of Expenditure",
+      "ministry": "Ministry of Finance",
+      "state": "Delhi",
+      "photo_url": null,
+      "profile_summary": "Public finance expert with deep experience in expenditure management and fiscal policy advisory",
+      "educational_background": "Chartered Accountant, MBA in Finance, Former Partner at Deloitte India",
+      "previous_experience": "Partner at Deloitte India with expertise in public finance management and government advisory",
+      "date_of_appointment": "2019-11-01",
+      "retirement_date": null,
+      "created_at": "2025-11-23 14:50:08",
+      "updated_at": "2025-11-23 14:50:08",
+      "categories": "Finance & Banking",
+      "media_count": 1
+    },
+    {
+      "id": 9,
+      "name": "Saurabh Vijay",
+      "batch_year": 2018,
+      "position": "Joint Secretary",
+      "department": "Department of Personnel and Training",
+      "ministry": "Ministry of Personnel, Public Grievances and Pensions",
+      "state": "Delhi",
+      "photo_url": null,
+      "profile_summary": "HR and personnel management expert with focus on capacity building",
+      "educational_background": "Human resources and management background",
+      "previous_experience": "HR management and organizational development in private sector",
+      "date_of_appointment": "2019-11-01",
+      "retirement_date": null,
+      "created_at": "2025-11-23 14:50:08",
+      "updated_at": "2025-11-23 14:50:08",
+      "categories": "Human Resources",
+      "media_count": 0
+    },
+    {
+      "id": 8,
+      "name": "Sujit Kumar Bajpayee",
+      "batch_year": 2018,
+      "position": "Joint Secretary",
+      "department": "Department of Pharmaceuticals",
+      "ministry": "Ministry of Chemicals and Fertilizers",
+      "state": "Delhi",
+      "photo_url": null,
+      "profile_summary": "Pharmaceutical sector expert with regulatory and policy experience",
+      "educational_background": "Pharmaceutical sciences background",
+      "previous_experience": "Pharmaceutical industry experience in regulatory and policy matters",
+      "date_of_appointment": "2019-11-01",
+      "retirement_date": null,
+      "created_at": "2025-11-23 14:50:08",
+      "updated_at": "2025-11-23 14:50:08",
+      "categories": null,
+      "media_count": 0
+    },
+    {
+      "id": 6,
+      "name": "Suman Prasad Singh",
+      "batch_year": 2018,
+      "position": "Joint Secretary",
+      "department": "Department of Agricultural Research and Education",
+      "ministry": "Ministry of Agriculture and Farmers Welfare",
+      "state": "Bihar",
+      "photo_url": null,
+      "profile_summary": "Agricultural research expert with focus on rural development and farmers' welfare",
+      "educational_background": "Agricultural Sciences, Research background",
+      "previous_experience": "Agricultural research and rural development experience",
+      "date_of_appointment": "2019-11-01",
+      "retirement_date": null,
+      "created_at": "2025-11-23 14:50:08",
+      "updated_at": "2025-11-23 14:50:08",
+      "categories": "Agriculture",
+      "media_count": 0
+    }
+  ],
+  "statistics": {
+    "total_entrants": "12",
+    "by_batch": [
+      {
+        "batch_year": 2018,
+        "count": 9
+      },
+      {
+        "batch_year": 2021,
+        "count": 1
+      },
+      {
+        "batch_year": 2022,
+        "count": 1
+      },
+      {
+        "batch_year": 2024,
+        "count": 1
+      }
+    ],
+    "by_ministry": [
+      {
+        "ministry": "Ministry of Finance",
+        "count": 4
+      },
+      {
+        "ministry": "Lateral Entry Scheme Paused",
+        "count": 1
+      },
+      {
+        "ministry": "Ministry of Agriculture and Farmers Welfare",
+        "count": 1
+      },
+      {
+        "ministry": "Ministry of Chemicals and Fertilizers",
+        "count": 1
+      },
+      {
+        "ministry": "Ministry of Commerce and Industry",
+        "count": 1
+      },
+      {
+        "ministry": "Ministry of Personnel, Public Grievances and Pensions",
+        "count": 1
+      },
+      {
+        "ministry": "Ministry of Road Transport and Highways",
+        "count": 1
+      },
+      {
+        "ministry": "Ministry of Youth Affairs and Sports",
+        "count": 1
+      },
+      {
+        "ministry": "UPSC Advertisement Withdrawn",
+        "count": 1
+      }
+    ],
+    "by_department": [
+      {
+        "department": "Department of Agricultural Research and Education",
+        "count": 1
+      },
+      {
+        "department": "Department of Economic Affairs",
+        "count": 1
+      },
+      {
+        "department": "Department of Expenditure",
+        "count": 1
+      },
+      {
+        "department": "Department of Financial Services",
+        "count": 1
+      },
+      {
+        "department": "Department of Personnel and Training",
+        "count": 1
+      },
+      {
+        "department": "Department of Pharmaceuticals",
+        "count": 1
+      },
+      {
+        "department": "Department of Revenue",
+        "count": 1
+      },
+      {
+        "department": "Department of Road Transport and Highways",
+        "count": 1
+      },
+      {
+        "department": "Department of Sports",
+        "count": 1
+      },
+      {
+        "department": "Ministry of Civil Aviation",
+        "count": 1
+      },
+      {
+        "department": "Multiple Departments",
+        "count": 1
+      },
+      {
+        "department": "N/A",
+        "count": 1
+      }
+    ],
+    "by_state": [
+      {
+        "state": "Delhi",
+        "count": 9
+      },
+      {
+        "state": "N/A",
+        "count": 1
+      },
+      {
+        "state": "Maharashtra",
+        "count": 1
+      },
+      {
+        "state": "Bihar",
+        "count": 1
+      }
+    ],
+    "media_coverage": [
+      {
+        "source_name": "Times of India",
+        "article_count": 1,
+        "coverage_rate": 1.0
+      },
+      {
+        "source_name": "ThePrint",
+        "article_count": 1,
+        "coverage_rate": 1.0
+      },
+      {
+        "source_name": "The Wire",
+        "article_count": 1,
+        "coverage_rate": 1.0
+      },
+      {
+        "source_name": "The Hindu",
+        "article_count": 1,
+        "coverage_rate": 1.0
+      },
+      {
+        "source_name": "PIB",
+        "article_count": 1,
+        "coverage_rate": 1.0
+      },
+      {
+        "source_name": "Indian Express",
+        "article_count": 1,
+        "coverage_rate": 1.0
+      },
+      {
+        "source_name": "Economic Times",
+        "article_count": 1,
+        "coverage_rate": 1.0
+      }
+    ],
+    "by_category": [
+      {
+        "category_name": "Finance & Banking",
+        "count": 4
+      },
+      {
+        "category_name": "Human Resources",
+        "count": 1
+      },
+      {
+        "category_name": "Infrastructure",
+        "count": 1
+      },
+      {
+        "category_name": "Agriculture",
+        "count": 1
+      },
+      {
+        "category_name": "Technology & Innovation",
+        "count": 0
+      },
+      {
+        "category_name": "Public Policy",
+        "count": 0
+      },
+      {
+        "category_name": "Legal Affairs",
+        "count": 0
+      },
+      {
+        "category_name": "Healthcare",
+        "count": 0
+      },
+      {
+        "category_name": "Education",
+        "count": 0
+      },
+      {
+        "category_name": "Energy & Environment",
+        "count": 0
+      }
+    ]
+  },
+  "export_date": "2025-11-23T20:40:01.571439",
+  "total_records": 12
+}

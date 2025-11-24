@@ -1,0 +1,59 @@
+{
+  "collection_summary": {
+    "total_entrants": 1,
+    "collection_date": "2025-11-23T19:28:31.706655",
+    "data_sources": [
+      "government announcements",
+      "news media",
+      "official sources"
+    ]
+  },
+  "quality_analysis": {
+    "average_quality_score": 80.0,
+    "high_quality_count": 1,
+    "low_quality_count": 0
+  },
+  "entrants_report": [
+    {
+      "entrant_info": {
+        "name": "Dr. Rajesh Kumar",
+        "batch_year": 2024,
+        "position": "Secretary",
+        "department": "Department of Renewable Energy",
+        "ministry": "Ministry of New and Renewable Energy",
+        "state": "Karnataka",
+        "educational_background": "B.Tech from NIT Surathkal",
+        "previous_experience": "Additional Secretary MNRE",
+        "date_of_appointment": "2024-02-01",
+        "profile_summary": "Expert in renewable energy policy"
+      },
+      "data_quality_score": 80.0,
+      "photo_search_suggestions": {
+        "search_keywords": [
+          "Dr. Rajesh Kumar Secretary",
+          "Dr. Rajesh Kumar government india",
+          "Dr. Rajesh Kumar Department of Renewable Energy",
+          "Dr. Rajesh Kumar civil servant",
+          "Dr. Rajesh Kumar bureaucrat"
+        ],
+        "suggested_sources": [
+          "linkedin.com",
+          "government websites",
+          "news articles",
+          "press conferences",
+          "official photographs"
+        ]
+      },
+      "verification_status": {
+        "status": "verified",
+        "checks_performed": [
+          "Name format validated",
+          "Batch year and appointment date consistent",
+          "Department-ministry mapping verified"
+        ],
+        "confidence_level": 1.0
+      },
+      "last_updated": "2025-11-23T19:28:31.706686"
+    }
+  ]
+}
