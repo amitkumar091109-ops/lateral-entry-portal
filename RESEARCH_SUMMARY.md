@@ -1,6 +1,6 @@
 # Lateral Entry Portal - Research & Data Update Summary
 
-## Research Completed: November 23, 2025
+## Research Completed: November 23-25, 2025
 
 ### Overview
 Conducted comprehensive research on India's Lateral Entry Scheme and updated the portal database with **verified information from official government sources**.
@@ -14,6 +14,36 @@ Conducted comprehensive research on India's Lateral Entry Scheme and updated the
 - **Level:** Joint Secretary and Director positions (NOT Cabinet/Secretary level)
 - **Contract:** 3-5 year appointments
 - **Scope:** Limited in number and carefully selected
+
+### 2. Current Status & Challenges (Updated November 2023 Analysis)
+
+**Source:** The Secretariat - "Five Years On, Govt's Lateral Entry Plan Falls Short Of Expectations"
+
+#### **Program Performance Issues:**
+- **October 2023:** PM chaired review meeting discussing lateral entry challenges
+- **Outcome not satisfactory** despite PM's intention to bring diversity
+- **Measures discussed** to empower them and bring them on par with other service officers
+
+#### **Integration Challenges:**
+- **Posting patterns** keep lateral entrants from mainstream policy decisions
+- **Career bureaucracy vs lateral entrants** - cultural and workflow conflicts
+- **Deployment issues** - experts placed in administrative roles vs technical areas
+
+#### **Specific Cases:**
+- **Civil Aviation expert** placed in administration, rejoined private sector
+- **Commerce Ministry Joint Secretary** left after 3 years due to role mismatch
+- **1 officer (2019 batch)** left after few weeks of service
+
+#### **Cultural Conflicts:**
+- **Corporate mindset** (profit-focused) vs **public service** (process-focused)
+- **Results-driven** vs **procedural compliance** approaches
+- **Limited access** to regular meetings and decision-making processes
+
+### 3. Recruitment Timeline (Confirmed)
+- **2019:** 8 Joint Secretaries
+- **2022:** 30 officers (3 Joint Secretaries, 27 Directors)
+- **2023:** UPSC advertised 37 more positions, completion expected March 2024
+- **Future:** Major rollout possibly after 2024 Lok Sabha elections
 
 ### 2. Actual Batches
 
