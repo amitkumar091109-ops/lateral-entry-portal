@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed profile of lateral entry appointee">
+    <title>Profile Detail | Lateral Entry Portal</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="../index.html" class="flex items-center">
+                    <i class="fas fa-landmark text-gov-blue text-2xl"></i>
+                    <div class="ml-3">
+                        <h1 class="text-lg font-bold text-gray-900">Lateral Entry Portal</h1>
+                    </div>
+                </a>
+                <a href="profiles.html" class="text-gray-600 hover:text-gov-blue">
+                    <i class="fas fa-arrow-left text-xl mr-2"></i>
+                    <span class="hidden sm:inline">Back</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Profile Content -->
+    <div id="profile-container" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Loading state -->
+        <div class="text-center py-16">
+            <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-gov-blue mx-auto"></div>
+            <p class="text-gray-600 mt-4">Loading profile...</p>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav id="mobile-nav" class="md:hidden bg-white border-t border-gray-200">
+        <div class="grid grid-cols-4 h-16">
+            <a href="../index.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-xs">Home</span>
+            </a>
+            <a href="./profiles.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gov-blue">
+                <i class="fas fa-users text-xl"></i>
+                <span class="text-xs">Profiles</span>
+            </a>
+            <a href="./analytics.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-chart-bar text-xl"></i>
+                <span class="text-xs">Stats</span>
+            </a>
+            <a href="./history.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-book text-xl"></i>
+                <span class="text-xs">More</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        async function loadProfile() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const entrantId = urlParams.get('id');
+            
+            if (!entrantId) {
+                document.getElementById('profile-container').innerHTML = `
+                    <div class="text-center py-16">
+                        <i class="fas fa-exclamation-triangle text-red-500 text-5xl mb-4"></i>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Profile Not Found</h2>
+                        <p class="text-gray-600 mb-6">No profile ID specified</p>
+                        <a href="profiles.html" class="inline-block bg-gov-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
+                            Browse All Profiles
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+            
+            const entrant = await window.LateralEntry.API.entrant(entrantId);
+            
+            if (!entrant) {
+                document.getElementById('profile-container').innerHTML = `
+                    <div class="text-center py-16">
+                        <i class="fas fa-exclamation-triangle text-red-500 text-5xl mb-4"></i>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Profile Not Found</h2>
+                        <p class="text-gray-600 mb-6">Unable to load profile details</p>
+                        <a href="profiles.html" class="inline-block bg-gov-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
+                            Browse All Profiles
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+            
+            document.title = `${entrant.name} | Lateral Entry Portal`;
+            renderProfile(entrant);
+        }
+        
+        function renderProfile(entrant) {
+            const container = document.getElementById('profile-container');
+            
+            container.innerHTML = `
+                <!-- Profile Header -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                    <div class="bg-gradient-to-r from-gov-blue to-blue-700 px-6 py-8 text-white">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h1 class="text-3xl font-bold mb-2">${entrant.name}</h1>
+                                <p class="text-xl text-blue-100 mb-3">${entrant.position}</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium">
+                                        <i class="fas fa-calendar mr-1"></i> Batch ${entrant.batch_year}
+                                    </span>
+                                    ${entrant.date_of_appointment ? `
+                                    <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium">
+                                        <i class="fas fa-clock mr-1"></i> Appointed ${window.LateralEntry.formatDate(entrant.date_of_appointment)}
+                                    </span>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 py-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Ministry & Department -->
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-500 uppercase mb-2">Ministry</h3>
+                                <p class="text-lg text-gray-900 flex items-start">
+                                    <i class="fas fa-building text-gov-blue mr-2 mt-1"></i>
+                                    ${entrant.ministry || 'Not specified'}
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-500 uppercase mb-2">Department</h3>
+                                <p class="text-lg text-gray-900 flex items-start">
+                                    <i class="fas fa-briefcase text-gov-blue mr-2 mt-1"></i>
+                                    ${entrant.department || 'Not specified'}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Educational Background -->
+                ${entrant.educational_background ? `
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-graduation-cap text-gov-blue mr-3"></i>
+                        Educational Background
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed">${entrant.educational_background}</p>
+                </div>
+                ` : ''}
+                
+                <!-- Previous Experience -->
+                ${entrant.previous_experience ? `
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-briefcase text-gov-blue mr-3"></i>
+                        Previous Experience
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed">${entrant.previous_experience}</p>
+                </div>
+                ` : ''}
+                
+                <!-- Profile Summary -->
+                ${entrant.profile_summary ? `
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-info-circle text-gov-blue mr-3"></i>
+                        Profile Summary
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed">${entrant.profile_summary}</p>
+                </div>
+                ` : ''}
+                
+                <!-- Professional Details -->
+                ${entrant.professional_details && entrant.professional_details.length > 0 ? `
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-user-tie text-gov-blue mr-3"></i>
+                        Professional Details
+                    </h2>
+                    ${entrant.professional_details.map(pd => `
+                        <div class="border-l-4 border-gov-blue pl-4 mb-4">
+                            ${pd.previous_company ? `<p class="font-semibold text-gray-900 mb-1">${pd.previous_company}</p>` : ''}
+                            ${pd.previous_position ? `<p class="text-gray-700 mb-1">${pd.previous_position}</p>` : ''}
+                            ${pd.industry_sector ? `<p class="text-sm text-gray-600">${pd.industry_sector}</p>` : ''}
+                            ${pd.years_experience ? `<p class="text-sm text-gray-600 mt-1">${pd.years_experience} years experience</p>` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+                
+                <!-- Key Information Grid -->
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    ${entrant.state ? `
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-sm font-semibold text-gray-500 uppercase mb-2">Location</h3>
+                        <p class="text-xl font-semibold text-gray-900">
+                            <i class="fas fa-map-marker-alt text-gov-blue mr-2"></i>
+                            ${entrant.state}
+                        </p>
+                    </div>
+                    ` : ''}
+                    
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-sm font-semibold text-gray-500 uppercase mb-2">Batch</h3>
+                        <p class="text-xl font-semibold text-gray-900">
+                            <i class="fas fa-users text-gov-blue mr-2"></i>
+                            <a href="batch-${entrant.batch_year}.html" class="hover:text-gov-blue hover:underline">
+                                ${entrant.batch_year} Batch
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Achievements -->
+                ${entrant.achievements && entrant.achievements.length > 0 ? `
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-trophy text-gov-blue mr-3"></i>
+                        Achievements
+                    </h2>
+                    <div class="space-y-4">
+                        ${entrant.achievements.map(achievement => `
+                            <div class="border-l-4 border-green-500 pl-4">
+                                ${achievement.achievement_title ? `<h4 class="font-semibold text-gray-900 mb-1">${achievement.achievement_title}</h4>` : ''}
+                                ${achievement.achievement_description ? `<p class="text-gray-700">${achievement.achievement_description}</p>` : ''}
+                                ${achievement.recognition_received ? `<p class="text-sm text-green-600 mt-1"><i class="fas fa-award mr-1"></i>${achievement.recognition_received}</p>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                ` : ''}
+                
+                <!-- Media Coverage -->
+                ${entrant.media_coverage && entrant.media_coverage.length > 0 ? `
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-newspaper text-gov-blue mr-3"></i>
+                        Media Coverage
+                    </h2>
+                    <div class="space-y-3">
+                        ${entrant.media_coverage.map(media => `
+                            <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                                ${media.article_title ? `<h4 class="font-semibold text-gray-900 mb-1">${media.article_title}</h4>` : ''}
+                                ${media.source_name ? `<p class="text-sm text-gray-600 mb-2">${media.source_name}${media.publication_date ? ` • ${window.LateralEntry.formatDate(media.publication_date)}` : ''}</p>` : ''}
+                                ${media.content_summary ? `<p class="text-gray-700 text-sm mb-2">${media.content_summary}</p>` : ''}
+                                ${media.article_url ? `<a href="${media.article_url}" target="_blank" class="text-gov-blue text-sm hover:underline"><i class="fas fa-external-link-alt mr-1"></i>Read Article</a>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                ` : ''}
+                
+                <!-- Navigation -->
+                <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                    <a href="profiles.html" class="flex-1 bg-gov-blue hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors">
+                        <i class="fas fa-arrow-left mr-2"></i> Back to All Profiles
+                    </a>
+                    <a href="batch-${entrant.batch_year}.html" class="flex-1 bg-white hover:bg-gray-50 text-gov-blue border-2 border-gov-blue px-6 py-3 rounded-lg font-semibold text-center transition-colors">
+                        <i class="fas fa-users mr-2"></i> View ${entrant.batch_year} Batch
+                    </a>
+                </div>
+            `;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadProfile);
+    </script>
+</body>
+</html>

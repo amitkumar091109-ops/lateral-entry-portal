@@ -1,0 +1,74 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    LATERAL ENTRY PORTAL - REVERT BACKUP                      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Backup Created: 2025-11-24 19:02:47
+Before: Complete Portal Overhaul
+
+════════════════════════════════════════════════════════════════════════════════
+
+📦 BACKUP CONTENTS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ index.html                    - Main portal (850 lines, 46KB)
+✓ research.html                 - Research page (385 lines, 22KB)  
+✓ search_results.html           - Search results (17 lines, 82KB)
+✓ lateral_entry.db              - Database with 40 entries (132KB)
+✓ All markdown documentation    - 11 files (reports, guides, summaries)
+
+════════════════════════════════════════════════════════════════════════════════
+
+🔄 ONE-COMMAND REVERT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+To restore ALL files to their pre-overhaul state:
+
+    cp -r /home/ubuntu/projects/lateral-entry-portal/backups/pre-overhaul-20251124_190247/* /home/ubuntu/projects/lateral-entry-portal/
+
+This will:
+  • Restore index.html to original 850-line version
+  • Restore research.html and search_results.html
+  • Restore database to 40 entries (9 from 2019, 31 from 2021)
+  • Restore all documentation to pre-overhaul versions
+
+════════════════════════════════════════════════════════════════════════════════
+
+📋 STEP-BY-STEP REVERT (if needed):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Restore HTML files only:
+   cd /home/ubuntu/projects/lateral-entry-portal
+   cp backups/pre-overhaul-20251124_190247/*.html .
+
+2. Restore database only:
+   cp backups/pre-overhaul-20251124_190247/lateral_entry.db database/
+
+3. Restore documentation only:
+   cp backups/pre-overhaul-20251124_190247/*.md .
+
+4. Verify restoration:
+   ls -lh *.html database/lateral_entry.db
+
+════════════════════════════════════════════════════════════════════════════════
+
+⚠️  IMPORTANT NOTES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• This backup was taken BEFORE the complete portal overhaul
+• Database contains 40 verified entries (2019: 9 entries, 2021: 31 entries)
+• After overhaul, database will have 50 entries (adding 2022: 10 entries)
+• New overhaul includes: Flask API, 11 modular pages, mobile-first design
+• Running revert will DELETE all new files created during overhaul
+
+════════════════════════════════════════════════════════════════════════════════
+
+📊 DATABASE STATE AT BACKUP:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Batch 2019: 9 Joint Secretaries
+Batch 2021: 31 appointees (3 JS, 19 Directors, 9 Deputy Secretaries)
+Batch 2022: NOT YET ADDED (will be added during overhaul)
+Total:      40 entries
+
+════════════════════════════════════════════════════════════════════════════════
+
+✅ BACKUP VERIFIED - Ready for Portal Overhaul

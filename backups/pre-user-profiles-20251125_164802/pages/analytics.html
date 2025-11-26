@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analytics and visualizations of lateral entry data">
+    <title>Analytics | Lateral Entry Portal</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <link rel="stylesheet" href="../assets/css/themes.css?v=9">
+</head>
+<body class="bg-theme-secondary">
+
+    <!-- Header -->
+    <header class="bg-theme-card border-b border-theme shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="../index.html" class="flex items-center space-x-3 group">
+                    <div class="logo-icon">
+                        <i class="fas fa-landmark text-theme-primary text-lg"></i>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-base font-bold text-theme-primary font-display">Lateral Entry Portal</h1>
+                        <p class="text-xs text-theme-muted">Government of India</p>
+                    </div>
+                </a>
+                <a href="../index.html" class="text-theme-muted hover:text-theme-accent transition-colors p-2 hover:bg-white/5 rounded-lg">
+                    <i class="fas fa-home text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-8 sm:py-12 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-2xl sm:text-4xl font-bold mb-2 flex items-center font-display">
+                <i class="fas fa-chart-line mr-3"></i>
+                Analytics & Insights
+            </h2>
+            <p class="text-muted text-sm sm:text-base">Visual analysis of lateral entry programme data</p>
+        </div>
+    </section>
+
+    <!-- Key Metrics -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8" id="key-metrics">
+            <!-- Loaded via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Charts Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 md:pb-8">
+        <!-- Batch Distribution -->
+        <div class="stat-card p-6 mb-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-theme-primary font-display flex items-center">
+                    <i class="fas fa-calendar-alt mr-3 "></i>
+                    Appointees by Batch Year
+                </h3>
+                <div class="text-xs text-theme-muted bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                    <i class="fas fa-chart-bar mr-1"></i> Bar Chart
+                </div>
+            </div>
+            <div class="h-80">
+                <canvas id="batchChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Position Distribution -->
+        <div class="stat-card p-6 mb-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-theme-primary font-display flex items-center">
+                    <i class="fas fa-briefcase mr-3 "></i>
+                    Distribution by Position
+                </h3>
+                <div class="text-xs text-theme-muted bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                    <i class="fas fa-chart-pie mr-1"></i> Doughnut Chart
+                </div>
+            </div>
+            <div class="h-80">
+                <canvas id="positionChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Top Ministries -->
+        <div class="stat-card p-6 mb-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-theme-primary font-display flex items-center">
+                    <i class="fas fa-building mr-3 text-neon-pink"></i>
+                    Top 10 Ministries
+                </h3>
+                <div class="text-xs text-theme-muted bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                    <i class="fas fa-chart-bar mr-1"></i> Horizontal Bar
+                </div>
+            </div>
+            <div class="h-96">
+                <canvas id="ministryChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Summary & Insights Grid -->
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div class="insight-box blue">
+                <h3 class="text-xl font-bold text-theme-primary mb-4 font-display flex items-center">
+                    <i class="fas fa-info-circle mr-3 text-blue-400"></i>
+                    Programme Summary
+                </h3>
+                <ul class="space-y-3 text-sm" id="programme-summary">
+                    <li class="flex items-start text-theme-muted">
+                        <i class="fas fa-sync fa-spin text-theme-accent mr-3 mt-1"></i>
+                        <span>Loading data...</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="insight-box green">
+                <h3 class="text-xl font-bold text-theme-primary mb-4 font-display flex items-center">
+                    <i class="fas fa-lightbulb mr-3 text-yellow-400"></i>
+                    Key Insights
+                </h3>
+                <ul class="space-y-3 text-sm" id="key-insights">
+                    <li class="flex items-start text-theme-muted">
+                        <i class="fas fa-sync fa-spin text-theme-accent mr-3 mt-1"></i>
+                        <span>Loading insights...</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Export Data -->
+        <div class="stat-card p-6">
+            <h3 class="text-xl font-bold text-theme-primary mb-4 font-display flex items-center">
+                <i class="fas fa-download mr-3 "></i>
+                Export Data
+            </h3>
+            <p class="text-theme-muted mb-4 text-sm">Download complete dataset for your own analysis</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="/lateral-entry/api/export?format=json" 
+                   class="export-btn">
+                    <i class="fas fa-file-code"></i>
+                    <span>Download JSON</span>
+                </a>
+                <a href="/lateral-entry/api/export?format=csv" 
+                   class="export-btn">
+                    <i class="fas fa-file-csv"></i>
+                    <span>Download CSV</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 mobile-nav z-50">
+        <div class="grid grid-cols-4 h-16">
+            <a href="../index.html" class="flex flex-col items-center justify-center space-y-1 text-theme-muted hover:text-theme-accent transition-colors">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-xs font-medium">Home</span>
+            </a>
+            <a href="./profiles.html" class="flex flex-col items-center justify-center space-y-1 text-theme-muted hover:text-theme-accent transition-colors">
+                <i class="fas fa-users text-xl"></i>
+                <span class="text-xs font-medium">Profiles</span>
+            </a>
+            <a href="./analytics.html" class="flex flex-col items-center justify-center space-y-1 text-neon-magenta transition-colors">
+                <i class="fas fa-chart-bar text-xl"></i>
+                <span class="text-xs font-medium">Stats</span>
+            </a>
+            <a href="./history.html" class="flex flex-col items-center justify-center space-y-1 text-theme-muted hover:text-theme-accent transition-colors">
+                <i class="fas fa-book text-xl"></i>
+                <span class="text-xs font-medium">More</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        let statsData = null;
+
+        async function loadAnalytics() {
+            statsData = await window.LateralEntry.API.stats();
+            
+            if (!statsData) {
+                console.error('Failed to load statistics');
+                return;
+            }
+            
+            renderKeyMetrics();
+            renderBatchChart();
+            renderPositionChart();
+            renderMinistryChart();
+            renderProgrammeSummary();
+        }
+
+        function renderKeyMetrics() {
+            const container = document.getElementById('key-metrics');
+            
+            const metrics = [
+                { icon: 'users', label: 'Total Appointees', value: statsData.total_appointees, color: 'blue' },
+                { icon: 'calendar', label: 'Batches', value: statsData.by_batch.length, color: 'green' },
+                { icon: 'building', label: 'Ministries', value: statsData.by_ministry.length, color: 'purple' },
+                { icon: 'briefcase', label: 'Positions', value: statsData.by_position.length, color: 'orange' }
+            ];
+            
+            container.innerHTML = metrics.map(m => `
+                <div class="stat-card ${m.color}">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="stat-icon ${m.color}">
+                            <i class="fas fa-${m.icon}"></i>
+                        </div>
+                    </div>
+                    <p class="text-white/90 text-xs font-medium mb-1">${m.label}</p>
+                    <p class="text-3xl font-bold text-theme-primary font-display">${m.value}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderBatchChart() {
+            const ctx = document.getElementById('batchChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: statsData.by_batch.map(b => `${b.batch_year}`),
+                    datasets: [{
+                        label: 'Number of Appointees',
+                        data: statsData.by_batch.map(b => b.count),
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.7)',
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(168, 85, 247, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgb(59, 130, 246)',
+                            'rgb(16, 185, 129)',
+                            'rgb(168, 85, 247)'
+                        ],
+                        borderWidth: 2,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(19, 19, 26, 0.95)',
+                            titleColor: '#fff',
+                            bodyColor: '#a8a8c0',
+                            borderColor: 'rgba(168, 85, 247, 0.5)',
+                            borderWidth: 1,
+                            padding: 12,
+                            cornerRadius: 8
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(168, 85, 247, 0.1)' },
+                            ticks: { color: '#a8a8c0', stepSize: 10 }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#a8a8c0' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderPositionChart() {
+            const ctx = document.getElementById('positionChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: statsData.by_position.map(p => p.position),
+                    datasets: [{
+                        data: statsData.by_position.map(p => p.count),
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.7)',
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(168, 85, 247, 0.7)',
+                            'rgba(236, 72, 153, 0.7)',
+                            'rgba(245, 158, 11, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgb(59, 130, 246)',
+                            'rgb(16, 185, 129)',
+                            'rgb(168, 85, 247)',
+                            'rgb(236, 72, 153)',
+                            'rgb(245, 158, 11)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#a8a8c0',
+                                padding: 15,
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(19, 19, 26, 0.95)',
+                            titleColor: '#fff',
+                            bodyColor: '#a8a8c0',
+                            borderColor: 'rgba(168, 85, 247, 0.5)',
+                            borderWidth: 1,
+                            padding: 12,
+                            cornerRadius: 8
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderMinistryChart() {
+            const ctx = document.getElementById('ministryChart').getContext('2d');
+            const top10 = statsData.by_ministry.slice(0, 10);
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: top10.map(m => m.ministry.replace('Ministry of ', '')),
+                    datasets: [{
+                        label: 'Number of Appointees',
+                        data: top10.map(m => m.count),
+                        backgroundColor: 'rgba(0, 240, 255, 0.7)',
+                        borderColor: 'rgb(0, 240, 255)',
+                        borderWidth: 2,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(19, 19, 26, 0.95)',
+                            titleColor: '#fff',
+                            bodyColor: '#a8a8c0',
+                            borderColor: 'rgba(168, 85, 247, 0.5)',
+                            borderWidth: 1,
+                            padding: 12,
+                            cornerRadius: 8
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(168, 85, 247, 0.1)' },
+                            ticks: { color: '#a8a8c0', stepSize: 2 }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: '#a8a8c0', font: { size: 11 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderProgrammeSummary() {
+            const container = document.getElementById('programme-summary');
+            container.innerHTML = `
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                    <span class="text-gray-300"><strong class="text-theme-primary">${statsData.total_appointees}</strong> professionals appointed across <strong class="text-theme-primary">${statsData.by_batch.length}</strong> batches</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                    <span class="text-gray-300"><strong class="text-theme-primary">${statsData.by_ministry.length}</strong> ministries benefiting from lateral expertise</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                    <span class="text-gray-300">Focus on <strong class="text-theme-primary">Finance, Commerce, Education, Technology</strong></span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                    <span class="text-gray-300">Appointees at <strong class="text-theme-primary">${statsData.by_position.length}</strong> different position levels</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                    <span class="text-gray-300">Programme running since <strong class="text-theme-primary">2019</strong></span>
+                </li>
+            `;
+            
+            renderKeyInsights();
+        }
+        
+        function renderKeyInsights() {
+            const container = document.getElementById('key-insights');
+            if (!container) return;
+            
+            const largestBatch = statsData.by_batch.reduce((max, batch) => 
+                batch.count > max.count ? batch : max
+            );
+            
+            const topMinistry = statsData.by_ministry[0];
+            
+            const directorData = statsData.by_position.find(p => p.position === 'Director');
+            const directorCount = directorData ? directorData.count : 0;
+            const directorPercent = Math.round((directorCount / statsData.total_appointees) * 100);
+            
+            const topDomains = statsData.by_ministry.slice(0, 4).map(m => 
+                m.ministry.replace('Ministry of ', '')
+            ).join(', ');
+            
+            container.innerHTML = `
+                <li class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-400 mr-3 mt-1"></i>
+                    <span class="text-gray-300"><strong class="text-theme-primary">${topMinistry.ministry}</strong> leads with <strong class="">${topMinistry.count}</strong> appointees</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-400 mr-3 mt-1"></i>
+                    <span class="text-gray-300"><strong class="text-theme-primary">${largestBatch.batch_year}</strong> saw the largest recruitment (<strong class="">${largestBatch.count}</strong> appointees)</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-400 mr-3 mt-1"></i>
+                    <span class="text-gray-300"><strong class="text-theme-primary">Directors</strong> constitute <strong class="">${directorPercent}%</strong> of all appointments</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-400 mr-3 mt-1"></i>
+                    <span class="text-gray-300">Top domains: <strong class="text-theme-primary">${topDomains}</strong></span>
+                </li>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', loadAnalytics);
+    </script>
+</body>
+</html>

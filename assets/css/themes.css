@@ -1,0 +1,1153 @@
+/**
+ * Lateral Entry Portal - Multi-Theme System
+ * Themes: Regular (Government Blue), Vintage (Classic), Cyberpunk (Neon), Minimalist (Clean)
+ */
+
+/* ============================================
+   THEME 1: REGULAR (Default Government Blue)
+   ============================================ */
+[data-theme="regular"] {
+    --primary: #1e40af;
+    --primary-light: #3b82f6;
+    --primary-dark: #1e3a8a;
+    --secondary: #10b981;
+    --accent: #f59e0b;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-tertiary: #f3f4f6;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --border: #e5e7eb;
+    --card-bg: #ffffff;
+    --card-border: #e5e7eb;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-lg: rgba(0, 0, 0, 0.15);
+    --overlay: rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   THEME 2: VINTAGE (Classic Brown/Sepia)
+   ============================================ */
+[data-theme="vintage"] {
+    --primary: #92400e;
+    --primary-light: #b45309;
+    --primary-dark: #78350f;
+    --secondary: #059669;
+    --accent: #dc2626;
+    --bg-primary: #fef3c7;
+    --bg-secondary: #fef9e7;
+    --bg-tertiary: #fef3e2;
+    --text-primary: #451a03;
+    --text-secondary: #78350f;
+    --text-muted: #92400e;
+    --border: #d97706;
+    --card-bg: #fffbeb;
+    --card-border: #fbbf24;
+    --shadow: rgba(146, 64, 14, 0.2);
+    --shadow-lg: rgba(146, 64, 14, 0.3);
+    --overlay: rgba(69, 26, 3, 0.7);
+}
+
+[data-theme="vintage"] body {
+    background: linear-gradient(135deg, #fef3c7 0%, #fef9e7 50%, #fef3c7 100%);
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+[data-theme="vintage"] .font-display,
+[data-theme="vintage"] h1, 
+[data-theme="vintage"] h2, 
+[data-theme="vintage"] h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+}
+
+/* ============================================
+   THEME 3: CYBERPUNK (Neon Dark)
+   ============================================ */
+[data-theme="cyberpunk"] {
+    --primary: #a855f7;
+    --primary-light: #c084fc;
+    --primary-dark: #9333ea;
+    --secondary: #00f0ff;
+    --accent: #ec4899;
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #13131a;
+    --bg-tertiary: #1a1a24;
+    --text-primary: #ffffff;
+    --text-secondary: #e5e7eb;
+    --text-muted: #a8a8c0;
+    --border: rgba(168, 85, 247, 0.3);
+    --card-bg: rgba(19, 19, 26, 0.9);
+    --card-border: rgba(168, 85, 247, 0.3);
+    --shadow: rgba(168, 85, 247, 0.15);
+    --shadow-lg: rgba(168, 85, 247, 0.3);
+    --overlay: rgba(10, 10, 15, 0.95);
+    --neon-cyan: #00f0ff;
+    --neon-magenta: #ff00ff;
+    --neon-purple: #a855f7;
+    --neon-pink: #ec4899;
+}
+
+[data-theme="cyberpunk"] body {
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a0a0f 100%);
+    color: #ffffff;
+}
+
+[data-theme="cyberpunk"] .font-display,
+[data-theme="cyberpunk"] h1,
+[data-theme="cyberpunk"] h2,
+[data-theme="cyberpunk"] h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+}
+
+/* ============================================
+   THEME 4: MINIMALIST (Clean Monochrome)
+   ============================================ */
+[data-theme="minimalist"] {
+    --primary: #000000;
+    --primary-light: #404040;
+    --primary-dark: #000000;
+    --secondary: #666666;
+    --accent: #999999;
+    --bg-primary: #ffffff;
+    --bg-secondary: #fafafa;
+    --bg-tertiary: #f5f5f5;
+    --text-primary: #000000;
+    --text-secondary: #404040;
+    --text-muted: #999999;
+    --border: #e0e0e0;
+    --card-bg: #ffffff;
+    --card-border: #e0e0e0;
+    --shadow: rgba(0, 0, 0, 0.05);
+    --shadow-lg: rgba(0, 0, 0, 0.1);
+    --overlay: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="minimalist"] body {
+    background: #ffffff;
+    color: #000000;
+}
+
+[data-theme="minimalist"] .font-display,
+[data-theme="minimalist"] h1,
+[data-theme="minimalist"] h2,
+[data-theme="minimalist"] h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+}
+
+/* ============================================
+   UNIVERSAL THEME STYLES
+   ============================================ */
+
+/* Backgrounds */
+.bg-theme-primary { background-color: var(--bg-primary) !important; }
+.bg-theme-secondary { background-color: var(--bg-secondary) !important; }
+.bg-theme-card { background-color: var(--card-bg) !important; }
+
+/* Text Colors */
+.text-theme-primary { color: var(--text-primary) !important; }
+.text-theme-secondary { color: var(--text-secondary) !important; }
+.text-theme-muted { color: var(--text-muted) !important; }
+.text-theme-accent { color: var(--primary) !important; }
+
+/* Borders */
+.border-theme { border-color: var(--border) !important; }
+.border-theme-card { border-color: var(--card-border) !important; }
+
+/* Buttons */
+.btn-theme-primary {
+    background: var(--primary) !important;
+    color: white !important;
+    border: 2px solid var(--primary) !important;
+}
+
+.btn-theme-primary:hover {
+    background: var(--primary-dark) !important;
+}
+
+/* Cards */
+.card-theme {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    box-shadow: 0 4px 12px var(--shadow) !important;
+}
+
+/* Links */
+a.link-theme {
+    color: var(--primary) !important;
+}
+
+a.link-theme:hover {
+    color: var(--primary-light) !important;
+}
+
+/* Cyberpunk Specific Effects */
+[data-theme="cyberpunk"] .card-theme {
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px var(--shadow-lg), 
+                0 0 0 1px var(--card-border) inset !important;
+}
+
+[data-theme="cyberpunk"] .btn-theme-primary {
+    background: linear-gradient(135deg, var(--primary), var(--accent)) !important;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5) !important;
+}
+
+[data-theme="cyberpunk"] .card-theme:hover {
+    border-color: var(--secondary) !important;
+    box-shadow: 0 20px 60px rgba(0, 240, 255, 0.2),
+                0 0 40px rgba(168, 85, 247, 0.2) !important;
+}
+
+/* Vintage Specific Effects */
+[data-theme="vintage"] .card-theme {
+    box-shadow: 0 4px 6px var(--shadow),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    border: 2px solid var(--card-border) !important;
+}
+
+[data-theme="vintage"] .btn-theme-primary {
+    box-shadow: 0 2px 4px var(--shadow),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Minimalist Specific Effects */
+[data-theme="minimalist"] .card-theme {
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 1px 3px var(--shadow) !important;
+}
+
+[data-theme="minimalist"] .btn-theme-primary {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Theme Selector Button */
+.theme-selector {
+    position: fixed;
+    bottom: 5rem;
+    right: 1rem;
+    z-index: 100;
+}
+
+@media (min-width: 768px) {
+    .theme-selector {
+        bottom: 1rem;
+    }
+}
+
+.theme-btn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    box-shadow: 0 4px 12px var(--shadow-lg);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px var(--shadow-lg);
+}
+
+.theme-menu {
+    position: absolute;
+    bottom: 4rem;
+    right: 0;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    box-shadow: 0 8px 24px var(--shadow-lg);
+    display: none;
+    min-width: 200px;
+}
+
+.theme-menu.show {
+    display: block;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-primary);
+    gap: 0.75rem;
+}
+
+.theme-option:hover {
+    background: var(--bg-tertiary);
+}
+
+.theme-option.active {
+    background: var(--primary);
+    color: white;
+}
+
+.theme-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.25rem;
+    flex-shrink: 0;
+}
+
+.theme-icon.regular {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+}
+
+.theme-icon.vintage {
+    background: linear-gradient(135deg, #92400e, #fbbf24);
+}
+
+.theme-icon.cyberpunk {
+    background: linear-gradient(135deg, #a855f7, #ec4899, #00f0ff);
+}
+
+.theme-icon.minimalist {
+    background: linear-gradient(135deg, #000000, #666666);
+}
+
+/* ============================================
+   PAGE-SPECIFIC STYLES (Theme-aware)
+   ============================================ */
+
+/* Hero Sections - Theme-specific gradient backgrounds */
+[data-theme="regular"] .hero-section {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #2563eb 100%);
+    color: white !important;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(30, 64, 175, 0.3);
+}
+
+[data-theme="vintage"] .hero-section {
+    background: linear-gradient(135deg, #92400e 0%, #b45309 50%, #d97706 100%);
+    color: #fef3c7 !important;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(146, 64, 14, 0.4);
+}
+
+[data-theme="cyberpunk"] .hero-section {
+    background: linear-gradient(135deg, #1a0a2e 0%, #a855f7 50%, #ec4899 100%);
+    color: white !important;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(236, 72, 153, 0.3);
+}
+
+[data-theme="minimalist"] .hero-section {
+    background: linear-gradient(135deg, #000000 0%, #404040 50%, #000000 100%);
+    color: white !important;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section * {
+    color: white !important;
+}
+
+[data-theme="vintage"] .hero-section * {
+    color: #fef3c7 !important;
+}
+
+.hero-section .text-muted {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Header - Theme-aware with gradients */
+header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+[data-theme="regular"] header .logo-icon {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    color: white !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+}
+
+[data-theme="vintage"] header .logo-icon {
+    background: linear-gradient(135deg, #92400e, #d97706);
+    color: #fef3c7 !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(146, 64, 14, 0.4);
+}
+
+[data-theme="cyberpunk"] header .logo-icon {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    color: white !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.5), 0 0 20px rgba(236, 72, 153, 0.3);
+}
+
+[data-theme="minimalist"] header .logo-icon {
+    background: linear-gradient(135deg, #000000, #404040);
+    color: white !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Cards - Theme-specific enhancements */
+.profile-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+/* Regular theme gradient effects */
+[data-theme="regular"] .profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1e40af, #3b82f6, #2563eb);
+}
+
+[data-theme="regular"] .profile-card:hover {
+    box-shadow: 0 8px 24px rgba(30, 64, 175, 0.2);
+}
+
+/* Vintage theme gradient effects */
+[data-theme="vintage"] .profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #92400e, #d97706, #fbbf24);
+}
+
+[data-theme="vintage"] .profile-card {
+    box-shadow: 0 4px 6px var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 2px solid var(--card-border);
+}
+
+[data-theme="vintage"] .profile-card:hover {
+    box-shadow: 0 6px 12px var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Cyberpunk theme gradient effects */
+[data-theme="cyberpunk"] .profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #a855f7, #ec4899, #00f0ff);
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+[data-theme="cyberpunk"] .profile-card {
+    backdrop-filter: blur(20px);
+    background: rgba(19, 19, 26, 0.9);
+    box-shadow: 0 8px 32px rgba(168, 85, 247, 0.2);
+}
+
+[data-theme="cyberpunk"] .profile-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 12px 40px rgba(0, 240, 255, 0.3), 0 0 40px rgba(168, 85, 247, 0.2);
+    border-color: var(--secondary);
+}
+
+/* Minimalist theme effects */
+[data-theme="minimalist"] .profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #000000, #666666, #000000);
+}
+
+[data-theme="minimalist"] .profile-card {
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px var(--shadow);
+    border-radius: 0.25rem;
+}
+
+[data-theme="minimalist"] .profile-card:hover {
+    box-shadow: 0 2px 6px var(--shadow);
+}
+
+/* Batch Badges - Always visible with consistent colors */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-2019 {
+    background: rgba(59, 130, 246, 0.15);
+    color: #2563eb;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    font-weight: 700;
+}
+
+.badge-2021 {
+    background: rgba(16, 185, 129, 0.15);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    font-weight: 700;
+}
+
+.badge-2023 {
+    background: rgba(168, 85, 247, 0.15);
+    color: #7c3aed;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    font-weight: 700;
+}
+
+.badge-position {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+}
+
+/* Position Level Badges */
+.position-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+/* Joint Secretary - Diamond Badge (Brilliant Clear/White) */
+.position-badge-js {
+    background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 50%, #ffffff 100%);
+    color: #0369a1;
+    border: 2px solid #38bdf8;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.5), 0 0 20px rgba(224, 242, 254, 0.6);
+}
+
+.position-badge-js::before {
+    content: '◆';
+    font-size: 1rem;
+    color: #0284c7;
+    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.8));
+}
+
+/* Director - Gold Badge */
+.position-badge-director {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #eab308 100%);
+    color: #78350f;
+    border: 2px solid #d97706;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.5);
+}
+
+.position-badge-director::before {
+    content: '★';
+    font-size: 1rem;
+    color: #78350f;
+    filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.8));
+}
+
+/* Deputy Secretary - Silver Badge */
+.position-badge-ds {
+    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 50%, #e5e7eb 100%);
+    color: #374151;
+    border: 2px solid #9ca3af;
+    box-shadow: 0 4px 12px rgba(156, 163, 175, 0.4);
+}
+
+.position-badge-ds::before {
+    content: '●';
+    font-size: 1rem;
+    color: #4b5563;
+    filter: drop-shadow(0 0 4px rgba(156, 163, 175, 0.6));
+}
+
+/* Cyberpunk Theme Enhancements for Position Badges */
+[data-theme="cyberpunk"] .position-badge-js {
+    background: linear-gradient(135deg, #ffffff 0%, #bfdbfe 50%, #ffffff 100%);
+    border-color: #38bdf8;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.8), 0 4px 12px rgba(191, 219, 254, 0.5);
+}
+
+[data-theme="cyberpunk"] .position-badge-js::before {
+    text-shadow: 0 0 15px rgba(56, 189, 248, 1), 0 0 25px rgba(56, 189, 248, 0.8);
+}
+
+[data-theme="cyberpunk"] .position-badge-director {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #eab308 100%);
+    border-color: #fbbf24;
+    box-shadow: 0 0 25px rgba(251, 191, 36, 0.8), 0 4px 12px rgba(251, 191, 36, 0.5);
+}
+
+[data-theme="cyberpunk"] .position-badge-director::before {
+    text-shadow: 0 0 15px rgba(251, 191, 36, 1);
+}
+
+[data-theme="cyberpunk"] .position-badge-ds {
+    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 50%, #e5e7eb 100%);
+    border-color: #d1d5db;
+    box-shadow: 0 0 20px rgba(209, 213, 219, 0.7), 0 4px 12px rgba(156, 163, 175, 0.5);
+}
+
+[data-theme="cyberpunk"] .position-badge-ds::before {
+    text-shadow: 0 0 10px rgba(156, 163, 175, 1);
+}
+
+/* Vintage Theme Enhancements for Position Badges */
+[data-theme="vintage"] .position-badge-js,
+[data-theme="vintage"] .position-badge-director,
+[data-theme="vintage"] .position-badge-ds {
+    box-shadow: 0 2px 6px rgba(146, 64, 14, 0.3), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Minimalist Theme Enhancements for Position Badges */
+[data-theme="minimalist"] .position-badge-js {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    color: #000000;
+    border: 2px solid #404040;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="minimalist"] .position-badge-director {
+    background: linear-gradient(135deg, #fafafa 0%, #e5e5e5 100%);
+    color: #1a1a1a;
+    border: 2px solid #666666;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="minimalist"] .position-badge-ds {
+    background: linear-gradient(135deg, #e5e5e5 0%, #d4d4d4 100%);
+    color: #333333;
+    border: 2px solid #999999;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Filter Chips - Clear visibility with theme gradients */
+.filter-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.625rem 1rem;
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    color: var(--text-secondary);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.filter-chip:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--bg-tertiary);
+    transform: translateY(-1px);
+}
+
+[data-theme="regular"] .filter-chip.active {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    border-color: #1e40af;
+    color: white;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+[data-theme="vintage"] .filter-chip.active {
+    background: linear-gradient(135deg, #92400e, #d97706);
+    border-color: #92400e;
+    color: #fef3c7;
+    box-shadow: 0 4px 12px rgba(146, 64, 14, 0.3);
+}
+
+[data-theme="cyberpunk"] .filter-chip.active {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    border-color: #a855f7;
+    color: white;
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4), 0 0 20px rgba(236, 72, 153, 0.2);
+}
+
+[data-theme="minimalist"] .filter-chip.active {
+    background: linear-gradient(135deg, #000000, #404040);
+    border-color: #000000;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.filter-chip .count {
+    margin-left: 0.5rem;
+    padding: 0.125rem 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+}
+
+/* Stats Cards - Theme-specific gradients */
+.stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Regular theme stat cards */
+[data-theme="regular"] .stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(30, 64, 175, 0.1));
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+[data-theme="regular"] .stat-card:hover::before {
+    top: -25%;
+    right: -25%;
+}
+
+/* Vintage theme stat cards */
+[data-theme="vintage"] .stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(146, 64, 14, 0.1));
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+[data-theme="vintage"] .stat-card:hover::before {
+    top: -25%;
+    right: -25%;
+}
+
+/* Cyberpunk theme stat cards */
+[data-theme="cyberpunk"] .stat-card {
+    background: rgba(19, 19, 26, 0.9);
+    backdrop-filter: blur(20px);
+}
+
+[data-theme="cyberpunk"] .stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(168, 85, 247, 0.2));
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+[data-theme="cyberpunk"] .stat-card:hover {
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4), 0 0 30px rgba(236, 72, 153, 0.2);
+}
+
+[data-theme="cyberpunk"] .stat-card:hover::before {
+    top: -25%;
+    right: -25%;
+}
+
+/* Minimalist theme stat cards */
+[data-theme="minimalist"] .stat-card {
+    border-radius: 0.25rem;
+}
+
+[data-theme="minimalist"] .stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(0, 0, 0, 0.05));
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+[data-theme="minimalist"] .stat-card:hover::before {
+    top: -25%;
+    right: -25%;
+}
+
+/* Avatar Placeholders - Theme-specific gradients */
+[data-theme="regular"] .avatar-placeholder,
+[data-theme="regular"] .profile-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    color: white;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+[data-theme="vintage"] .avatar-placeholder,
+[data-theme="vintage"] .profile-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #92400e, #d97706);
+    color: #fef3c7;
+    box-shadow: 0 4px 12px rgba(146, 64, 14, 0.3);
+}
+
+[data-theme="cyberpunk"] .avatar-placeholder,
+[data-theme="cyberpunk"] .profile-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    color: white;
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4), 0 0 20px rgba(236, 72, 153, 0.3);
+}
+
+[data-theme="minimalist"] .avatar-placeholder,
+[data-theme="minimalist"] .profile-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #000000, #404040);
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Bar */
+.search-bar {
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.search-bar:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 0.75rem 3rem 0.75rem 3rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.clear-search {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+/* Buttons - Theme-specific gradients */
+[data-theme="regular"] .btn-primary {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    border: 2px solid #1e40af;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+[data-theme="regular"] .btn-primary:hover {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+}
+
+[data-theme="vintage"] .btn-primary {
+    background: linear-gradient(135deg, #92400e, #d97706);
+    color: #fef3c7;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    border: 2px solid #92400e;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(146, 64, 14, 0.3);
+}
+
+[data-theme="vintage"] .btn-primary:hover {
+    background: linear-gradient(135deg, #78350f, #b45309);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(146, 64, 14, 0.4);
+}
+
+[data-theme="cyberpunk"] .btn-primary {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    border: 2px solid #a855f7;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4), 0 0 20px rgba(236, 72, 153, 0.3);
+}
+
+[data-theme="cyberpunk"] .btn-primary:hover {
+    background: linear-gradient(135deg, #9333ea, #db2777);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5), 0 0 30px rgba(236, 72, 153, 0.4);
+}
+
+[data-theme="minimalist"] .btn-primary {
+    background: linear-gradient(135deg, #000000, #404040);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    border: 2px solid #000000;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="minimalist"] .btn-primary:hover {
+    background: linear-gradient(135deg, #000000, #666666);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    border: 2px solid var(--primary);
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    border: 3px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Timeline (History page) */
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    border-left: 3px solid var(--border);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -0.5rem;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 0 4px var(--card-bg), 0 0 0 6px var(--border);
+}
+
+/* FAQ Accordions */
+.faq-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.faq-item:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.faq-question {
+    padding: 1.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: between;
+    align-items: center;
+}
+
+.faq-answer {
+    padding: 0 1.25rem 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Cyberpunk Theme Enhancements for Badges */
+[data-theme="cyberpunk"] .badge-2019 {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="cyberpunk"] .badge-2021 {
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="cyberpunk"] .badge-2023 {
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+/* Vintage Theme Enhancements for Badges */
+[data-theme="vintage"] .badge {
+    box-shadow: 0 2px 4px rgba(146, 64, 14, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Minimalist Theme Enhancements for Badges */
+[data-theme="minimalist"] .badge {
+    border-radius: 0.25rem;
+}
+
+[data-theme="minimalist"] .filter-chip {
+    border-radius: 0.25rem;
+}

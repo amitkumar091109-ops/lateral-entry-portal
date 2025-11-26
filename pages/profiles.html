@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" id="page-description" content="Browse all lateral entry appointees - complete verified profiles">
+    <title>All Profiles | Lateral Entry Portal</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <link rel="stylesheet" href="../assets/css/themes.css?v=9">
+</head>
+<body class="bg-theme-secondary">
+
+    <!-- Header -->
+    <header class="bg-theme-card border-b border-theme shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="../index.html" class="flex items-center space-x-3 group">
+                    <div class="logo-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-base font-bold text-theme-primary font-display">Lateral Entry Portal</h1>
+                        <p class="text-xs text-theme-muted">Government of India</p>
+                    </div>
+                </a>
+                <a href="../index.html" class="text-theme-secondary hover:text-theme-accent transition-colors p-2 rounded-lg">
+                    <i class="fas fa-home text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-8 sm:py-12 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl sm:text-4xl font-bold mb-2 flex items-center font-display">
+                        <i class="fas fa-users mr-3"></i>
+                        All Appointees
+                    </h2>
+                    <p class="text-muted text-sm sm:text-base" id="page-subtitle">Loading profiles...</p>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/30">
+                        <p class="text-white/80 text-xs font-medium mb-1">Total</p>
+                        <p class="text-3xl font-bold" id="hero-count">-</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filters -->
+    <section class="bg-theme-secondary border-b border-theme py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Search Bar -->
+            <div class="mb-4">
+                <div class="search-bar">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" 
+                           id="search-input" 
+                           placeholder="Search by name, ministry, department, position..." 
+                           class="search-input">
+                    <i class="fas fa-times clear-search hidden" id="clear-search"></i>
+                </div>
+            </div>
+            
+            <!-- Filter Chips -->
+            <div class="overflow-x-auto -mx-4 px-4 pb-2">
+                <div class="flex gap-2 min-w-max" id="filter-buttons">
+                    <button class="filter-chip active" data-filter="all">
+                        All <span class="count" id="count-all">-</span>
+                    </button>
+                    <!-- Batch filters loaded dynamically -->
+                    <button class="filter-chip" data-filter="js">
+                        <i class="fas fa-briefcase mr-1"></i> Joint Secretary
+                    </button>
+                    <button class="filter-chip" data-filter="director">
+                        <i class="fas fa-user-tie mr-1"></i> Director
+                    </button>
+                    <button class="filter-chip" data-filter="deputy">
+                        <i class="fas fa-user mr-1"></i> Deputy Secretary
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Header -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-between">
+            <p class="text-theme-muted text-sm sm:text-base">
+                <i class="fas fa-filter mr-2 text-theme-accent"></i>
+                Showing <span id="results-count" class="font-bold text-theme-accent">-</span> appointees
+            </p>
+            <div class="flex gap-2">
+                <button id="view-grid" class="view-btn active text-theme-primary">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button id="view-list" class="view-btn text-theme-muted hover:text-theme-primary">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profiles Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 md:pb-12">
+        <div id="profiles-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Loading state -->
+            <div class="col-span-full">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <div class="skeleton h-64"></div>
+                    <div class="skeleton h-64"></div>
+                    <div class="skeleton h-64"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 mobile-nav z-50">
+        <div class="grid grid-cols-4 h-16">
+            <a href="../index.html" class="flex flex-col items-center justify-center space-y-1 text-theme-muted hover:text-theme-accent transition-colors">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-xs font-medium">Home</span>
+            </a>
+            <a href="./profiles.html" class="flex flex-col items-center justify-center space-y-1 text-neon-magenta transition-colors">
+                <i class="fas fa-users text-xl"></i>
+                <span class="text-xs font-medium">Profiles</span>
+            </a>
+            <a href="./analytics.html" class="flex flex-col items-center justify-center space-y-1 text-theme-muted hover:text-theme-accent transition-colors">
+                <i class="fas fa-chart-bar text-xl"></i>
+                <span class="text-xs font-medium">Stats</span>
+            </a>
+            <a href="./history.html" class="flex flex-col items-center justify-center space-y-1 text-theme-muted hover:text-theme-accent transition-colors">
+                <i class="fas fa-book text-xl"></i>
+                <span class="text-xs font-medium">More</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/theme-switcher.js?v=6"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        let allEntrants = [];
+        let currentFilter = 'all';
+        let viewMode = 'grid';
+        
+        // Load all entrants
+        async function loadEntrants() {
+            const data = await window.LateralEntry.API.entrants({ limit: 100 });
+            
+            // Handle both array and object responses
+            const entrants = Array.isArray(data) ? data : (data?.entrants || []);
+            
+            if (!entrants || entrants.length === 0) {
+                showEmptyState('Failed to load profiles. Please try again later.');
+                return;
+            }
+            
+            allEntrants = entrants;
+            
+            // Update meta description and page subtitle
+            const metaDesc = document.getElementById('page-description');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', `Browse all ${allEntrants.length} lateral entry appointees - complete verified profiles`);
+            }
+            
+            const pageSubtitle = document.getElementById('page-subtitle');
+            if (pageSubtitle) {
+                pageSubtitle.textContent = `Browse complete profiles of all ${allEntrants.length} lateral entry appointees`;
+            }
+            
+            const heroCount = document.getElementById('hero-count');
+            if (heroCount) {
+                heroCount.textContent = allEntrants.length;
+            }
+            
+            // Update total count
+            document.getElementById('count-all').textContent = allEntrants.length;
+            
+            // Build batch filter buttons dynamically
+            loadBatchFilters();
+            
+            renderEntrants(allEntrants);
+        }
+        
+        // Load batch filters dynamically
+        function loadBatchFilters() {
+            const batches = {};
+            allEntrants.forEach(e => {
+                batches[e.batch_year] = (batches[e.batch_year] || 0) + 1;
+            });
+            
+            const filterButtons = document.getElementById('filter-buttons');
+            const allBtn = filterButtons.querySelector('[data-filter="all"]');
+            
+            // Insert batch buttons after "All" button
+            Object.keys(batches).sort().reverse().forEach(year => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-chip';
+                btn.setAttribute('data-filter', year);
+                
+                btn.innerHTML = `
+                    <i class="fas fa-calendar-alt mr-1"></i>
+                    ${year} Batch 
+                    <span class="count">${batches[year]}</span>
+                `;
+                
+                allBtn.after(btn);
+                
+                // Add event listener
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = year;
+                    filterEntrants(year);
+                });
+            });
+        }
+        
+        // Create futuristic profile card
+        function createModernCard(entrant) {
+            const batchBadgeClass = entrant.batch_year == 2019 ? 'badge-2019' : 
+                                     entrant.batch_year == 2021 ? 'badge-2021' : 'badge-2023';
+            
+            const initials = entrant.name.split(' ')
+                .map(word => word[0])
+                .slice(0, 2)
+                .join('')
+                .toUpperCase();
+            
+            // Determine position badge
+            const positionLower = entrant.position.toLowerCase();
+            let positionBadgeClass = 'badge badge-position';
+            if (positionLower.includes('joint secretary')) {
+                positionBadgeClass = 'position-badge position-badge-js';
+            } else if (positionLower.includes('director') && !positionLower.includes('deputy')) {
+                positionBadgeClass = 'position-badge position-badge-director';
+            } else if (positionLower.includes('deputy')) {
+                positionBadgeClass = 'position-badge position-badge-ds';
+            }
+            
+            return `
+                <div class="profile-card flex flex-col h-full">
+                    <!-- Card Header -->
+                    <div class="p-6 pb-4">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="profile-avatar">
+                                ${initials}
+                            </div>
+                            <span class="badge ${batchBadgeClass}">
+                                <i class="fas fa-calendar-alt mr-1"></i>${entrant.batch_year}
+                            </span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold text-theme-primary mb-1 line-clamp-2 font-display">
+                            ${entrant.name}
+                        </h3>
+                        <p class="${positionBadgeClass} text-xs mb-3">
+                            ${entrant.position}
+                        </p>
+                    </div>
+                    
+                    <!-- Card Body -->
+                    <div class="px-6 py-4 bg-white/5 flex-grow">
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-start">
+                                <i class="fas fa-building text-theme-accent mr-2 mt-1 flex-shrink-0"></i>
+                                <span class="text-theme-muted line-clamp-2">${entrant.ministry || 'N/A'}</span>
+                            </div>
+                            ${entrant.department ? `
+                                <div class="flex items-start">
+                                    <i class="fas fa-sitemap text-theme-accent mr-2 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-400 text-xs line-clamp-2">${entrant.department}</span>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                    
+                    <!-- Card Footer -->
+                    <div class="p-4 border-t border-theme">
+                        <a href="./profile-detail.html?id=${entrant.id}" 
+                           class="btn-primary flex items-center justify-center w-full">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Render entrants
+        function renderEntrants(entrants) {
+            const grid = document.getElementById('profiles-grid');
+            const resultsCount = document.getElementById('results-count');
+            
+            if (entrants.length === 0) {
+                showEmptyState('No profiles found matching your search criteria');
+                resultsCount.textContent = '0';
+                return;
+            }
+            
+            grid.className = viewMode === 'grid' 
+                ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6'
+                : 'grid grid-cols-1 gap-4';
+            
+            grid.innerHTML = entrants.map(entrant => createModernCard(entrant)).join('');
+            resultsCount.textContent = entrants.length;
+        }
+        
+        // Show empty state
+        function showEmptyState(message) {
+            const grid = document.getElementById('profiles-grid');
+            grid.className = 'grid grid-cols-1';
+            grid.innerHTML = `
+                <div class="col-span-full text-center py-16">
+                    <div class="inline-flex items-center justify-center w-24 h-24 bg-white/5 rounded-full mb-4 border border-purple-500/30">
+                        <i class="fas fa-search text-theme-accent text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-theme-primary mb-2 font-display">No Results Found</h3>
+                    <p class="text-theme-muted max-w-md mx-auto">${message}</p>
+                </div>
+            `;
+        }
+        
+        // Filter entrants
+        function filterEntrants(filter) {
+            let filtered = allEntrants;
+            
+            if (filter === '2019' || filter === '2021' || filter === '2023') {
+                filtered = allEntrants.filter(e => e.batch_year == filter);
+            } else if (filter === 'js') {
+                filtered = allEntrants.filter(e => e.position.toLowerCase().includes('joint secretary'));
+            } else if (filter === 'director') {
+                filtered = allEntrants.filter(e => e.position.toLowerCase().includes('director'));
+            } else if (filter === 'deputy') {
+                filtered = allEntrants.filter(e => e.position.toLowerCase().includes('deputy'));
+            }
+            
+            renderEntrants(filtered);
+        }
+        
+        // Search entrants
+        function searchEntrants(query) {
+            const clearBtn = document.getElementById('clear-search');
+            
+            if (!query.trim()) {
+                clearBtn.classList.add('hidden');
+                filterEntrants(currentFilter);
+                return;
+            }
+            
+            clearBtn.classList.remove('hidden');
+            
+            const lowerQuery = query.toLowerCase();
+            const filtered = allEntrants.filter(e => 
+                e.name.toLowerCase().includes(lowerQuery) ||
+                (e.ministry && e.ministry.toLowerCase().includes(lowerQuery)) ||
+                (e.department && e.department.toLowerCase().includes(lowerQuery)) ||
+                (e.position && e.position.toLowerCase().includes(lowerQuery))
+            );
+            
+            renderEntrants(filtered);
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadEntrants();
+            
+            // Filter buttons
+            document.querySelectorAll('.filter-chip').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.getAttribute('data-filter');
+                    filterEntrants(currentFilter);
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.getElementById('search-input');
+            const clearBtn = document.getElementById('clear-search');
+            
+            let searchTimeout;
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    searchEntrants(e.target.value);
+                }, 300);
+            });
+            
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                clearBtn.classList.add('hidden');
+                filterEntrants(currentFilter);
+            });
+            
+            // View mode toggle
+            document.getElementById('view-grid').addEventListener('click', function() {
+                viewMode = 'grid';
+                this.classList.add('active');
+                document.getElementById('view-list').classList.remove('active');
+                renderEntrants(currentFilter === 'all' ? allEntrants : allEntrants.filter(e => {
+                    if (currentFilter === '2019' || currentFilter === '2021' || currentFilter === '2023') {
+                        return e.batch_year == currentFilter;
+                    }
+                    return true;
+                }));
+            });
+            
+            document.getElementById('view-list').addEventListener('click', function() {
+                viewMode = 'list';
+                this.classList.add('active');
+                document.getElementById('view-grid').classList.remove('active');
+                renderEntrants(currentFilter === 'all' ? allEntrants : allEntrants.filter(e => {
+                    if (currentFilter === '2019' || currentFilter === '2021' || currentFilter === '2023') {
+                        return e.batch_year == currentFilter;
+                    }
+                    return true;
+                }));
+            });
+            
+            // Scroll to top button
+            const scrollTopBtn = document.getElementById('scroll-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Check for search query param
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get('search');
+            if (searchQuery) {
+                searchInput.value = searchQuery;
+                setTimeout(() => searchEntrants(searchQuery), 500);
+            }
+        });
+    </script>
+</body>
+</html>

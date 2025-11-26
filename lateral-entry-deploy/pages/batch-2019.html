@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" id="page-description" content="2019 Batch - First cohort of lateral entry appointments">
+    <title>2019 Batch | Lateral Entry Portal</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="../index.html" class="flex items-center">
+                    <i class="fas fa-landmark text-gov-blue text-2xl"></i>
+                    <div class="ml-3">
+                        <h1 class="text-lg font-bold text-gray-900">Lateral Entry Portal</h1>
+                    </div>
+                </a>
+                <a href="../index.html" class="text-gray-600 hover:text-gov-blue">
+                    <i class="fas fa-home text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Batch Header -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="text-4xl font-bold mb-2">2019 Batch</h2>
+                    <p class="text-xl text-blue-100 mb-3">First cohort of lateral entry appointments</p>
+                    <p class="text-blue-200">Advertisement No. 17/2018 • Appointed September 2019</p>
+                </div>
+                <div class="hidden md:block bg-white/20 backdrop-blur-sm rounded-lg px-8 py-6 text-center">
+                    <div class="text-5xl font-bold" id="batch-count">-</div>
+                    <div class="text-blue-100 mt-1">Appointees</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Cards -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="stats-cards">
+            <!-- Loaded via JavaScript -->
+        </div>
+    </section>
+
+    <!-- About This Batch -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">About the 2019 Batch</h3>
+            <div class="prose prose-blue max-w-none">
+                <p class="text-gray-700 leading-relaxed mb-4" id="batch-intro">
+                    Loading batch information...
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    These appointees brought specialized expertise in critical sectors including:
+                </p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4" id="sector-list">
+                    <li>Loading sectors...</li>
+                </ul>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4">
+                    <p class="text-blue-900">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        <strong>Note:</strong> One selected candidate (Dr. Kakoli Ghosh) declined the appointment to continue her work 
+                        with the Food and Agriculture Organization (FAO) of the United Nations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointees List -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6">All Appointees</h3>
+        <div id="appointees-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Loading -->
+            <div class="col-span-full text-center py-12">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-gov-blue mx-auto"></div>
+                <p class="text-gray-600 mt-4">Loading appointees...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation to Other Batches -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div class="bg-gradient-to-r from-gray-50 to-blue-50 rounded-lg p-8 border border-blue-100">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Explore Other Batches</h3>
+            <div class="grid sm:grid-cols-2 gap-4" id="other-batches">
+                <!-- Loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav id="mobile-nav" class="md:hidden bg-white border-t border-gray-200">
+        <div class="grid grid-cols-4 h-16">
+            <a href="../index.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-xs">Home</span>
+            </a>
+            <a href="./profiles.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-users text-xl"></i>
+                <span class="text-xs">Profiles</span>
+            </a>
+            <a href="./analytics.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-chart-bar text-xl"></i>
+                <span class="text-xs">Stats</span>
+            </a>
+            <a href="./history.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-book text-xl"></i>
+                <span class="text-xs">More</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        const BATCH_YEAR = 2019;
+        
+        async function loadBatchData() {
+            const data = await window.LateralEntry.API.batch(BATCH_YEAR);
+            
+            if (!data || !data.entrants) {
+                document.getElementById('appointees-grid').innerHTML = 
+                    '<div class="col-span-full text-center text-red-600">Failed to load batch data</div>';
+                return;
+            }
+            
+            // Update meta description
+            const metaDesc = document.getElementById('page-description');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', `2019 Batch - ${data.statistics.total} appointees through lateral entry`);
+            }
+            
+            // Update count
+            document.getElementById('batch-count').textContent = data.statistics.total;
+            
+            // Update batch intro text dynamically
+            const batchIntro = document.getElementById('batch-intro');
+            if (batchIntro) {
+                batchIntro.innerHTML = `
+                    The <strong>2019 batch</strong> marked the beginning of India's lateral entry initiative, bringing in <strong>${data.statistics.total} appointees</strong> 
+                    from the private sector and international organizations. This pioneering cohort was selected through <strong>Advertisement No. 17/2018</strong>, 
+                    issued by the Union Public Service Commission (UPSC).
+                `;
+            }
+            
+            // Build sector list dynamically from ministries
+            const ministries = {};
+            data.entrants.forEach(e => {
+                if (e.ministry) {
+                    const shortName = e.ministry.replace('Ministry of ', '');
+                    ministries[shortName] = (ministries[shortName] || 0) + 1;
+                }
+            });
+            
+            const sectorList = document.getElementById('sector-list');
+            if (sectorList) {
+                sectorList.innerHTML = Object.entries(ministries)
+                    .sort((a, b) => b[1] - a[1])
+                    .map(([sector, count]) => `<li><strong>${sector}</strong> - ${count > 1 ? count + ' appointees' : '1 appointee'}</li>`)
+                    .join('');
+            }
+            
+            // Render stats cards
+            renderStatsCards(data);
+            
+            // Render appointees
+            renderAppointees(data.entrants);
+            
+            // Load other batches
+            loadOtherBatches();
+        }
+        
+        function renderStatsCards(data) {
+            const container = document.getElementById('stats-cards');
+            container.innerHTML = `
+                ${window.LateralEntry.createStatsCard('users', 'Total Appointees', data.statistics.total, 'blue')}
+                ${window.LateralEntry.createStatsCard('building', 'Ministries', data.statistics.ministries, 'green')}
+                ${window.LateralEntry.createStatsCard('briefcase', 'Positions', data.statistics.positions, 'purple')}
+                ${window.LateralEntry.createStatsCard('calendar', 'Batch Year', BATCH_YEAR, 'orange')}
+            `;
+        }
+        
+        function renderAppointees(entrants) {
+            const grid = document.getElementById('appointees-grid');
+            grid.innerHTML = entrants.map(entrant => 
+                window.LateralEntry.createEntrantCard(entrant)
+            ).join('');
+        }
+        
+        async function loadOtherBatches() {
+            const stats = await window.LateralEntry.API.stats();
+            if (!stats || !stats.by_batch) return;
+            
+            const otherBatches = stats.by_batch.filter(b => b.batch_year !== BATCH_YEAR);
+            const colors = { 2019: 'blue', 2021: 'green', 2022: 'purple' };
+            const container = document.getElementById('other-batches');
+            
+            container.innerHTML = otherBatches.map(batch => `
+                <a href="batch-${batch.batch_year}.html" class="block bg-white hover:shadow-lg transition-shadow rounded-lg p-5 border-2 border-${colors[batch.batch_year] || 'gray'}-200">
+                    <h4 class="text-xl font-bold text-gray-900 mb-1">${batch.batch_year} Batch</h4>
+                    <p class="text-gray-600 text-sm mb-2">${batch.count} appointees</p>
+                    <span class="text-${colors[batch.batch_year] || 'gray'}-600 text-sm font-medium">
+                        <i class="fas fa-arrow-right mr-1"></i> View Details
+                    </span>
+                </a>
+            `).join('');
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadBatchData);
+    </script>
+</body>
+</html>

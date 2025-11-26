@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme System Test | Lateral Entry Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/themes.css?v=2">
+    <style>
+        .test-card {
+            border: 2px solid #ddd;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 0.5rem;
+        }
+        .test-pass { border-color: #10b981; background: #d1fae5; }
+        .test-fail { border-color: #ef4444; background: #fee2e2; }
+        .test-pending { border-color: #f59e0b; background: #fef3c7; }
+    </style>
+</head>
+<body class="bg-theme-secondary p-8">
+    <div class="max-w-4xl mx-auto">
+        <div class="bg-theme-card p-6 rounded-lg shadow-lg mb-6">
+            <h1 class="text-3xl font-bold text-theme-primary mb-2">
+                <i class="fas fa-flask mr-2"></i>
+                Theme System Diagnostic
+            </h1>
+            <p class="text-theme-secondary">Testing theme system functionality</p>
+        </div>
+
+        <!-- Current Theme Display -->
+        <div class="bg-theme-card p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-bold text-theme-primary mb-4">Current Theme</h2>
+            <div class="text-2xl font-mono bg-gray-100 p-4 rounded" id="current-theme">
+                Loading...
+            </div>
+        </div>
+
+        <!-- Test Results -->
+        <div class="bg-theme-card p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-bold text-theme-primary mb-4">Test Results</h2>
+            <div id="test-results">
+                <div class="test-card test-pending">
+                    <i class="fas fa-spinner fa-spin mr-2"></i> Running tests...
+                </div>
+            </div>
+        </div>
+
+        <!-- Manual Theme Switcher -->
+        <div class="bg-theme-card p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-bold text-theme-primary mb-4">Manual Theme Test</h2>
+            <p class="text-theme-secondary mb-4">Click buttons to test theme switching:</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <button onclick="testTheme('regular')" class="bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700">
+                    <i class="fas fa-building mr-2"></i> Regular
+                </button>
+                <button onclick="testTheme('vintage')" class="bg-amber-700 text-white px-4 py-3 rounded-lg hover:bg-amber-800">
+                    <i class="fas fa-book mr-2"></i> Vintage
+                </button>
+                <button onclick="testTheme('cyberpunk')" class="bg-purple-600 text-white px-4 py-3 rounded-lg hover:bg-purple-700">
+                    <i class="fas fa-rocket mr-2"></i> Cyberpunk
+                </button>
+                <button onclick="testTheme('minimalist')" class="bg-gray-800 text-white px-4 py-3 rounded-lg hover:bg-gray-900">
+                    <i class="fas fa-minus mr-2"></i> Minimalist
+                </button>
+            </div>
+        </div>
+
+        <!-- Theme Variables Display -->
+        <div class="bg-theme-card p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold text-theme-primary mb-4">CSS Variables</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 font-mono text-sm" id="css-vars">
+                Loading...
+            </div>
+        </div>
+
+        <!-- Back to Portal -->
+        <div class="mt-6 text-center">
+            <a href="index.html" class="text-blue-600 hover:text-blue-700 font-medium">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Portal
+            </a>
+        </div>
+    </div>
+
+    <script src="assets/js/theme-switcher.js?v=2"></script>
+    <script>
+        // Run diagnostic tests
+        function runTests() {
+            const results = [];
+            
+            // Test 1: Check if themes.css loaded
+            const themesLoaded = document.querySelector('link[href*="themes.css"]');
+            results.push({
+                name: 'themes.css loaded',
+                pass: !!themesLoaded,
+                details: themesLoaded ? 'File loaded successfully' : 'File not found in DOM'
+            });
+
+            // Test 2: Check if theme-switcher.js loaded
+            results.push({
+                name: 'theme-switcher.js loaded',
+                pass: typeof window.themeSwitcher !== 'undefined',
+                details: typeof window.themeSwitcher !== 'undefined' ? 'ThemeSwitcher instance found' : 'ThemeSwitcher not initialized'
+            });
+
+            // Test 3: Check if data-theme attribute exists
+            const themeAttr = document.documentElement.getAttribute('data-theme');
+            results.push({
+                name: 'data-theme attribute set',
+                pass: !!themeAttr,
+                details: themeAttr ? `Current: ${themeAttr}` : 'Attribute not set'
+            });
+
+            // Test 4: Check if theme button exists
+            const themeButton = document.querySelector('.theme-selector');
+            results.push({
+                name: 'Theme selector UI created',
+                pass: !!themeButton,
+                details: themeButton ? 'UI component found in DOM' : 'UI component not created'
+            });
+
+            // Test 5: Check localStorage
+            let localStorageWorks = false;
+            try {
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+                localStorageWorks = true;
+            } catch (e) {
+                // localStorage not available
+            }
+            results.push({
+                name: 'localStorage available',
+                pass: localStorageWorks,
+                details: localStorageWorks ? 'Can read/write localStorage' : 'localStorage blocked or unavailable'
+            });
+
+            // Test 6: Check CSS variables
+            const styles = getComputedStyle(document.documentElement);
+            const primaryColor = styles.getPropertyValue('--primary');
+            results.push({
+                name: 'CSS variables working',
+                pass: !!primaryColor && primaryColor.trim() !== '',
+                details: primaryColor ? `--primary = ${primaryColor.trim()}` : 'CSS variables not found'
+            });
+
+            return results;
+        }
+
+        function displayResults(results) {
+            const container = document.getElementById('test-results');
+            container.innerHTML = results.map(result => `
+                <div class="test-card ${result.pass ? 'test-pass' : 'test-fail'}">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <i class="fas fa-${result.pass ? 'check-circle text-green-600' : 'times-circle text-red-600'} mr-2"></i>
+                            <strong>${result.name}</strong>
+                        </div>
+                        <span class="text-sm ${result.pass ? 'text-green-700' : 'text-red-700'} font-mono">
+                            ${result.pass ? 'PASS' : 'FAIL'}
+                        </span>
+                    </div>
+                    <div class="text-sm text-gray-600 mt-2 ml-6">${result.details}</div>
+                </div>
+            `).join('');
+        }
+
+        function updateCurrentTheme() {
+            const theme = document.documentElement.getAttribute('data-theme') || 'unknown';
+            document.getElementById('current-theme').textContent = theme;
+        }
+
+        function displayCSSVariables() {
+            const styles = getComputedStyle(document.documentElement);
+            const vars = ['--primary', '--bg-primary', '--bg-card', '--text-primary', '--text-secondary', '--border'];
+            
+            const html = vars.map(varName => {
+                const value = styles.getPropertyValue(varName).trim();
+                return `
+                    <div class="p-2 bg-gray-50 rounded">
+                        <div class="font-bold text-gray-700">${varName}</div>
+                        <div class="text-gray-600">${value || 'not set'}</div>
+                        ${value ? `<div class="w-full h-8 mt-1 rounded" style="background: ${value}"></div>` : ''}
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('css-vars').innerHTML = html;
+        }
+
+        function testTheme(themeName) {
+            console.log('Switching to theme:', themeName);
+            if (window.themeSwitcher) {
+                window.themeSwitcher.switchTo(themeName);
+                setTimeout(() => {
+                    updateCurrentTheme();
+                    displayCSSVariables();
+                }, 100);
+            } else {
+                alert('ThemeSwitcher not initialized!');
+            }
+        }
+
+        // Run tests after page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const results = runTests();
+                displayResults(results);
+                updateCurrentTheme();
+                displayCSSVariables();
+            }, 500);
+        });
+
+        // Update display when theme changes
+        setInterval(() => {
+            updateCurrentTheme();
+        }, 1000);
+    </script>
+</body>
+</html>

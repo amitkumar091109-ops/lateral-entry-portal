@@ -1,0 +1,66 @@
+URGENT: JSON Files Missing on Production
+=========================================
+
+PROBLEM: The HTML pages are deployed but the JSON data files are missing,
+causing "Failed to load profiles" errors on all pages.
+
+SOLUTION: Upload the JSON files to the server
+
+FILES TO UPLOAD:
+---------------
+From: /home/ubuntu/projects/lateral-entry-portal/lateral-entry-deploy/data/
+
+Upload these 6 files to: https://prabhu.app/lateral-entry/data/
+
+1. entrants.json (36 KB) - All 72 appointees
+2. stats.json (8 KB) - Statistics
+3. batches.json (4 KB) - Batch metadata
+4. batch-2019.json (8 KB) - 2019 batch detail
+5. batch-2021.json (24 KB) - 2021 batch detail
+6. batch-2023.json (24 KB) - 2023 batch detail (NEW)
+
+UPLOAD METHOD OPTIONS:
+---------------------
+
+Option 1: Using SCP (if you have SSH access)
+scp lateral-entry-deploy/data/*.json user@prabhu.app:/path/to/lateral-entry/data/
+
+Option 2: Using SFTP
+sftp user@prabhu.app
+cd /path/to/lateral-entry/data/
+put lateral-entry-deploy/data/*.json
+
+Option 3: Using cPanel File Manager
+1. Login to your hosting control panel
+2. Navigate to: public_html/lateral-entry/data/
+3. Upload all 6 JSON files from: lateral-entry-deploy/data/
+
+Option 4: Using FTP Client (FileZilla, etc.)
+1. Connect to prabhu.app via FTP
+2. Navigate to: /lateral-entry/data/
+3. Upload all 6 JSON files
+
+VERIFICATION AFTER UPLOAD:
+-------------------------
+Test these URLs in browser (should return JSON, not 404):
+
+✓ https://prabhu.app/lateral-entry/data/stats.json
+✓ https://prabhu.app/lateral-entry/data/entrants.json
+✓ https://prabhu.app/lateral-entry/data/batches.json
+✓ https://prabhu.app/lateral-entry/data/batch-2019.json
+✓ https://prabhu.app/lateral-entry/data/batch-2021.json
+✓ https://prabhu.app/lateral-entry/data/batch-2023.json
+
+Then check: https://prabhu.app/lateral-entry/
+Should now display: 72 Total Appointees, 3 Batches, all data loading
+
+CURRENT STATUS:
+--------------
+✅ HTML files deployed (batch-2023.html exists)
+✅ JavaScript files deployed (main.js updated)
+❌ JSON data files MISSING (causing errors)
+
+ALTERNATIVE: Pre-packaged Files
+-------------------------------
+Download: lateral-entry-json-files.tar.gz
+Contains all 6 JSON files ready to upload

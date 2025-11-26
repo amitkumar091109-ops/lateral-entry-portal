@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" id="page-description" content="Browse all lateral entry appointees - complete verified profiles">
+    <title>All Profiles | Lateral Entry Portal</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="../index.html" class="flex items-center">
+                    <i class="fas fa-landmark text-gov-blue text-2xl"></i>
+                    <div class="ml-3">
+                        <h1 class="text-lg font-bold text-gray-900">Lateral Entry Portal</h1>
+                    </div>
+                </a>
+                <a href="../index.html" class="text-gray-600 hover:text-gov-blue">
+                    <i class="fas fa-home text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-gov-blue to-blue-700 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-2">All Appointees</h2>
+            <p class="text-blue-100" id="page-subtitle">Loading profiles...</p>
+        </div>
+    </section>
+
+    <!-- Filters & Search -->
+    <section class="bg-white border-b sticky top-16 z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <!-- Search Bar -->
+            <div class="mb-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search by name, ministry, department..." 
+                           class="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gov-blue focus:border-transparent">
+                    <i class="fas fa-search absolute left-4 top-4 text-gray-400"></i>
+                </div>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2" id="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    All <span class="ml-1 font-semibold" id="count-all">-</span>
+                </button>
+                <!-- Batch filters loaded dynamically -->
+                <button class="filter-btn" data-filter="js">
+                    Joint Secretary
+                </button>
+                <button class="filter-btn" data-filter="director">
+                    Director
+                </button>
+                <button class="filter-btn" data-filter="deputy">
+                    Deputy Secretary
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Count -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <p class="text-gray-600">
+            Showing <span id="results-count" class="font-semibold text-gray-900">-</span> appointees
+        </p>
+    </section>
+
+    <!-- Profiles Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div id="profiles-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Loading state -->
+            <div class="col-span-full text-center py-12">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-gov-blue mx-auto"></div>
+                <p class="text-gray-600 mt-4">Loading profiles...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav id="mobile-nav" class="md:hidden bg-white border-t border-gray-200">
+        <div class="grid grid-cols-4 h-16">
+            <a href="../index.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-xs">Home</span>
+            </a>
+            <a href="./profiles.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gov-blue">
+                <i class="fas fa-users text-xl"></i>
+                <span class="text-xs">Profiles</span>
+            </a>
+            <a href="./analytics.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-chart-bar text-xl"></i>
+                <span class="text-xs">Stats</span>
+            </a>
+            <a href="./history.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-book text-xl"></i>
+                <span class="text-xs">More</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        let allEntrants = [];
+        let currentFilter = 'all';
+        
+        // Load all entrants
+        async function loadEntrants() {
+            const data = await window.LateralEntry.API.entrants({ limit: 100 });
+            
+            // Handle both array and object responses
+            const entrants = Array.isArray(data) ? data : (data?.entrants || []);
+            
+            if (!entrants || entrants.length === 0) {
+                document.getElementById('profiles-grid').innerHTML = 
+                    '<div class="col-span-full"><p class="text-center text-red-600">Failed to load profiles</p></div>';
+                return;
+            }
+            
+            allEntrants = entrants;
+            
+            // Update meta description and page subtitle
+            const metaDesc = document.getElementById('page-description');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', `Browse all ${allEntrants.length} lateral entry appointees - complete verified profiles`);
+            }
+            
+            const pageSubtitle = document.getElementById('page-subtitle');
+            if (pageSubtitle) {
+                pageSubtitle.textContent = `Browse complete profiles of all ${allEntrants.length} lateral entry appointees`;
+            }
+            
+            // Update total count
+            document.getElementById('count-all').textContent = allEntrants.length;
+            
+            // Build batch filter buttons dynamically
+            loadBatchFilters();
+            
+            renderEntrants(allEntrants);
+        }
+        
+        // Load batch filters dynamically
+        function loadBatchFilters() {
+            const batches = {};
+            allEntrants.forEach(e => {
+                batches[e.batch_year] = (batches[e.batch_year] || 0) + 1;
+            });
+            
+            const filterButtons = document.getElementById('filter-buttons');
+            const allBtn = filterButtons.querySelector('[data-filter="all"]');
+            
+            // Insert batch buttons after "All" button
+            Object.keys(batches).sort().forEach(year => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.setAttribute('data-filter', year);
+                btn.innerHTML = `${year} Batch <span class="ml-1 font-semibold" id="count-${year}">${batches[year]}</span>`;
+                allBtn.after(btn);
+                
+                // Add event listener
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = year;
+                    filterEntrants(year);
+                });
+            });
+        }
+        
+        // Render entrants
+        function renderEntrants(entrants) {
+            const grid = document.getElementById('profiles-grid');
+            const resultsCount = document.getElementById('results-count');
+            
+            if (entrants.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <i class="fas fa-search text-gray-300 text-5xl mb-4"></i>
+                        <p class="text-gray-600">No profiles found matching your criteria</p>
+                    </div>
+                `;
+                resultsCount.textContent = '0';
+                return;
+            }
+            
+            grid.innerHTML = entrants.map(entrant => 
+                window.LateralEntry.createEntrantCard(entrant)
+            ).join('');
+            
+            resultsCount.textContent = entrants.length;
+        }
+        
+        // Filter entrants
+        function filterEntrants(filter) {
+            let filtered = allEntrants;
+            
+            if (filter === '2019' || filter === '2021' || filter === '2022') {
+                filtered = allEntrants.filter(e => e.batch_year == filter);
+            } else if (filter === 'js') {
+                filtered = allEntrants.filter(e => e.position.toLowerCase().includes('joint secretary'));
+            } else if (filter === 'director') {
+                filtered = allEntrants.filter(e => e.position.toLowerCase().includes('director'));
+            } else if (filter === 'deputy') {
+                filtered = allEntrants.filter(e => e.position.toLowerCase().includes('deputy'));
+            }
+            
+            renderEntrants(filtered);
+        }
+        
+        // Search entrants
+        function searchEntrants(query) {
+            if (!query.trim()) {
+                filterEntrants(currentFilter);
+                return;
+            }
+            
+            const lowerQuery = query.toLowerCase();
+            const filtered = allEntrants.filter(e => 
+                e.name.toLowerCase().includes(lowerQuery) ||
+                (e.ministry && e.ministry.toLowerCase().includes(lowerQuery)) ||
+                (e.department && e.department.toLowerCase().includes(lowerQuery)) ||
+                (e.position && e.position.toLowerCase().includes(lowerQuery))
+            );
+            
+            renderEntrants(filtered);
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadEntrants();
+            
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active state
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Filter
+                    currentFilter = btn.getAttribute('data-filter');
+                    filterEntrants(currentFilter);
+                });
+            });
+            
+            // Search
+            const searchInput = document.getElementById('search-input');
+            let searchTimeout;
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    searchEntrants(e.target.value);
+                }, 300);
+            });
+            
+            // Check for search query param
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get('search');
+            if (searchQuery) {
+                searchInput.value = searchQuery;
+                setTimeout(() => searchEntrants(searchQuery), 500);
+            }
+        });
+    </script>
+    
+    <style>
+        .filter-btn {
+            @apply px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-200;
+        }
+        
+        .filter-btn.active {
+            @apply bg-gov-blue text-white hover:bg-blue-700;
+        }
+    </style>
+</body>
+</html>

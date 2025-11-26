@@ -1,0 +1,62 @@
+================================================
+LATERAL ENTRY PORTAL - BACKUP MANIFEST
+================================================
+
+Backup Name: test-backup-initial-20251126_131502
+Phase: test-backup-initial
+Created: Wed Nov 26 13:15:03 IST 2025
+Backup Directory: /home/ubuntu/projects/lateral-entry-portal/backups/test-backup-initial-20251126_131502
+
+================================================
+CONTENTS
+================================================
+
+Database:
+- lateral_entry.db (SQLite primary)
+- lateral_entry.db.sqlite3backup (SQLite backup format)
+- database/ directory (complete)
+
+Data:
+- data/ directory (JSON exports, scripts)
+
+API:
+- api/ directory (Flask server)
+
+Frontend:
+- pages/ directory (HTML pages)
+- assets/ directory (CSS, JS, images)
+- index.html (homepage)
+- manifest.json (PWA manifest)
+
+Configuration:
+- requirements.txt
+- .gitignore
+- Documentation files (*.md)
+
+OpenSpec:
+- openspec/ directory (change proposals)
+
+================================================
+DATABASE STATISTICS (at backup time)
+================================================
+
+Total Entrants: 65
+Total Tables: 11
+
+================================================
+BACKUP SIZE
+================================================
+
+Total Size: 3.4M
+
+================================================
+RESTORATION
+================================================
+
+To restore this backup:
+    ./backup_system.sh restore test-backup-initial-20251126_131502
+
+To verify this backup:
+    ./backup_system.sh verify test-backup-initial-20251126_131502
+
+================================================

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analytics and visualizations of lateral entry data">
+    <title>Analytics | Lateral Entry Portal</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="../index.html" class="flex items-center">
+                    <i class="fas fa-landmark text-gov-blue text-2xl"></i>
+                    <div class="ml-3">
+                        <h1 class="text-lg font-bold text-gray-900">Lateral Entry Portal</h1>
+                    </div>
+                </a>
+                <a href="../index.html" class="text-gray-600 hover:text-gov-blue">
+                    <i class="fas fa-home text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-gov-blue to-blue-700 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-2">Analytics & Insights</h2>
+            <p class="text-blue-100">Visual analysis of lateral entry programme data</p>
+        </div>
+    </section>
+
+    <!-- Key Metrics -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="key-metrics">
+            <!-- Loaded via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Charts Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <!-- Batch Distribution -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Appointees by Batch Year</h3>
+            <div class="h-80">
+                <canvas id="batchChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Position Distribution -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Distribution by Position</h3>
+            <div class="h-80">
+                <canvas id="positionChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Top Ministries -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Top 10 Ministries</h3>
+            <div class="h-96">
+                <canvas id="ministryChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Appointment Timeline</h3>
+            <div id="timeline-container" class="space-y-4">
+                <!-- Loaded via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Summary Statistics -->
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg p-6 border border-blue-200">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Programme Summary</h3>
+                <ul class="space-y-3 text-gray-700" id="programme-summary">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                        <span>Loading data...</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-lg p-6 border border-green-200">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Key Insights</h3>
+                <ul class="space-y-3 text-gray-700" id="key-insights">
+                    <li class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-3 mt-1"></i>
+                        <span>Loading insights...</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Export Data -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Export Data</h3>
+            <p class="text-gray-600 mb-4">Download complete dataset for your own analysis</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="http://localhost:5000/api/export?format=json" 
+                   class="bg-gov-blue hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                    <i class="fas fa-download mr-2"></i> Download JSON
+                </a>
+                <a href="http://localhost:5000/api/export?format=csv" 
+                   class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                    <i class="fas fa-file-csv mr-2"></i> Download CSV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav id="mobile-nav" class="md:hidden bg-white border-t border-gray-200">
+        <div class="grid grid-cols-4 h-16">
+            <a href="../index.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-xs">Home</span>
+            </a>
+            <a href="./profiles.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-users text-xl"></i>
+                <span class="text-xs">Profiles</span>
+            </a>
+            <a href="./analytics.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gov-blue">
+                <i class="fas fa-chart-bar text-xl"></i>
+                <span class="text-xs">Stats</span>
+            </a>
+            <a href="./history.html" class="flex flex-col items-center justify-center space-y-1 touch-target no-underline text-gray-600">
+                <i class="fas fa-book text-xl"></i>
+                <span class="text-xs">More</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        let statsData = null;
+
+        async function loadAnalytics() {
+            statsData = await window.LateralEntry.API.stats();
+            
+            if (!statsData) {
+                console.error('Failed to load statistics');
+                return;
+            }
+            
+            renderKeyMetrics();
+            renderBatchChart();
+            renderPositionChart();
+            renderMinistryChart();
+            renderProgrammeSummary();
+        }
+
+        function renderKeyMetrics() {
+            const container = document.getElementById('key-metrics');
+            container.innerHTML = `
+                ${window.LateralEntry.createStatsCard('users', 'Total Appointees', statsData.total_appointees, 'blue')}
+                ${window.LateralEntry.createStatsCard('calendar', 'Batches', statsData.by_batch.length, 'green')}
+                ${window.LateralEntry.createStatsCard('building', 'Ministries', statsData.by_ministry.length, 'purple')}
+                ${window.LateralEntry.createStatsCard('briefcase', 'Positions', statsData.by_position.length, 'orange')}
+            `;
+        }
+
+        function renderBatchChart() {
+            const ctx = document.getElementById('batchChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: statsData.by_batch.map(b => `${b.batch_year} Batch`),
+                    datasets: [{
+                        label: 'Number of Appointees',
+                        data: statsData.by_batch.map(b => b.count),
+                        backgroundColor: [
+                            'rgba(37, 99, 235, 0.8)',
+                            'rgba(22, 163, 74, 0.8)',
+                            'rgba(147, 51, 234, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgb(37, 99, 235)',
+                            'rgb(22, 163, 74)',
+                            'rgb(147, 51, 234)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 5
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderPositionChart() {
+            const ctx = document.getElementById('positionChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: statsData.by_position.map(p => p.position),
+                    datasets: [{
+                        data: statsData.by_position.map(p => p.count),
+                        backgroundColor: [
+                            'rgba(37, 99, 235, 0.8)',
+                            'rgba(22, 163, 74, 0.8)',
+                            'rgba(147, 51, 234, 0.8)',
+                            'rgba(234, 88, 12, 0.8)'
+                        ],
+                        borderColor: 'white',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderMinistryChart() {
+            const ctx = document.getElementById('ministryChart').getContext('2d');
+            const top10 = statsData.by_ministry.slice(0, 10);
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: top10.map(m => m.ministry.replace('Ministry of ', '')),
+                    datasets: [{
+                        label: 'Number of Appointees',
+                        data: top10.map(m => m.count),
+                        backgroundColor: 'rgba(37, 99, 235, 0.8)',
+                        borderColor: 'rgb(37, 99, 235)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 2
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderProgrammeSummary() {
+            const container = document.getElementById('programme-summary');
+            container.innerHTML = `
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                    <span><strong>${statsData.total_appointees}</strong> professionals appointed across ${statsData.by_batch.length} batches</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                    <span><strong>${statsData.by_ministry.length}</strong> ministries benefiting from lateral expertise</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                    <span>Focus on <strong>Finance, Commerce, Education, Technology</strong></span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                    <span>Appointees at <strong>${statsData.by_position.length}</strong> different position levels</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                    <span>Programme running since <strong>2019</strong></span>
+                </li>
+            `;
+            
+            // Render key insights dynamically
+            renderKeyInsights();
+        }
+        
+        function renderKeyInsights() {
+            const container = document.getElementById('key-insights');
+            if (!container) return;
+            
+            // Find largest batch
+            const largestBatch = statsData.by_batch.reduce((max, batch) => 
+                batch.count > max.count ? batch : max
+            );
+            
+            // Find top ministry
+            const topMinistry = statsData.by_ministry[0];
+            
+            // Calculate director percentage
+            const directorData = statsData.by_position.find(p => p.position === 'Director');
+            const directorCount = directorData ? directorData.count : 0;
+            const directorPercent = Math.round((directorCount / statsData.total_appointees) * 100);
+            
+            // Get top domains from ministries
+            const topDomains = statsData.by_ministry.slice(0, 4).map(m => 
+                m.ministry.replace('Ministry of ', '')
+            ).join(', ');
+            
+            container.innerHTML = `
+                <li class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-500 mr-3 mt-1"></i>
+                    <span><strong>${topMinistry.ministry}</strong> leads with ${topMinistry.count} appointees across all batches</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-500 mr-3 mt-1"></i>
+                    <span><strong>${largestBatch.batch_year}</strong> saw the largest recruitment drive (${largestBatch.count} appointees)</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-500 mr-3 mt-1"></i>
+                    <span><strong>Directors</strong> constitute ${directorPercent}% of all appointments (${directorCount} of ${statsData.total_appointees})</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-500 mr-3 mt-1"></i>
+                    <span><strong>${topDomains}</strong> are top priority domains</span>
+                </li>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', loadAnalytics);
+    </script>
+</body>
+</html>

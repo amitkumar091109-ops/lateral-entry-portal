@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Lateral Entry Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/css/themes.css?v=9">
+</head>
+<body class="bg-theme-secondary">
+    <header class="bg-theme-card shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="../index.html" class="flex items-center">
+                    <i class="fas fa-landmark text-theme-accent text-2xl"></i>
+                    <div class="ml-3"><h1 class="text-lg font-bold">Lateral Entry Portal</h1></div>
+                </a>
+                <a href="../index.html" class="text-theme-secondary hover:text-theme-accent"><i class="fas fa-home text-xl"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-2">Frequently Asked Questions</h2>
+            <p class="text-muted">Common questions about lateral entry</p>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="space-y-4">
+            <details class="bg-theme-card rounded-lg shadow-md" open>
+                <summary class="cursor-pointer p-6 font-semibold text-lg hover:bg-theme-secondary">What is lateral entry?</summary>
+                <div class="px-6 pb-6 text-theme-secondary">Appointment of specialists from private sector/academia to senior government positions (Joint Secretary, Director, Deputy Secretary) on contract basis, typically 3-5 years.</div>
+            </details>
+
+            <details class="bg-theme-card rounded-lg shadow-md">
+                <summary class="cursor-pointer p-6 font-semibold text-lg hover:bg-theme-secondary">How many people have been appointed?</summary>
+                <div class="px-6 pb-6 text-theme-secondary" id="faq-total-count">Loading...</div>
+            </details>
+
+            <details class="bg-theme-card rounded-lg shadow-md">
+                <summary class="cursor-pointer p-6 font-semibold text-lg hover:bg-theme-secondary">Which ministries have lateral entrants?</summary>
+                <div class="px-6 pb-6 text-theme-secondary" id="faq-ministries">Loading...</div>
+            </details>
+
+            <details class="bg-theme-card rounded-lg shadow-md">
+                <summary class="cursor-pointer p-6 font-semibold text-lg hover:bg-theme-secondary">What happened to the 2024 recruitment?</summary>
+                <div class="px-6 pb-6 text-theme-secondary">Advertisement No. 54/2024 for 45 posts was cancelled within 72 hours due to absence of reservation policy. <a href="2024-cancellation.html" class="text-theme-accent hover:underline">Read full report →</a></div>
+            </details>
+
+            <details class="bg-theme-card rounded-lg shadow-md">
+                <summary class="cursor-pointer p-6 font-semibold text-lg hover:bg-theme-secondary">Are reservations applicable?</summary>
+                <div class="px-6 pb-6 text-theme-secondary">Government's position: Not applicable to "single-post cadres" per Supreme Court precedent. However, this remains politically and legally contentious.</div>
+            </details>
+
+            <details class="bg-theme-card rounded-lg shadow-md">
+                <summary class="cursor-pointer p-6 font-semibold text-lg hover:bg-theme-secondary">What positions are available?</summary>
+                <div class="px-6 pb-6 text-theme-secondary" id="faq-positions">Loading...</div>
+            </details>
+
+            <details class="bg-theme-card rounded-lg shadow-md">
+                <summary class="cursor-pointer p-6 font-semibold text-lg hover:bg-theme-secondary">What is the contract duration?</summary>
+                <div class="px-6 pb-6 text-theme-secondary">Typically 3-5 years, with possible extensions. Several 2021-2022 batch members received 1-2 year extensions in 2024.</div>
+            </details>
+
+            <details class="bg-theme-card rounded-lg shadow-md">
+                <summary class="cursor-pointer p-6 font-semibold text-lg hover:bg-theme-secondary">Is this data verified?</summary>
+                <div class="px-6 pb-6 text-theme-secondary">Yes, 100% verified from official PIB releases, UPSC notifications, DoPT reports, and parliamentary records. <a href="citations.html" class="text-theme-accent hover:underline">View all sources →</a></div>
+            </details>
+        </div>
+    </div>
+
+    <nav id="mobile-nav" class="md:hidden bg-theme-card border-t border-theme">
+        <div class="grid grid-cols-4 h-16">
+            <a href="../index.html" class="flex flex-col items-center justify-center space-y-1 touch-target text-theme-secondary no-underline">
+                <i class="fas fa-home text-xl"></i><span class="text-xs">Home</span>
+            </a>
+            <a href="./profiles.html" class="flex flex-col items-center justify-center space-y-1 touch-target text-theme-secondary no-underline">
+                <i class="fas fa-users text-xl"></i><span class="text-xs">Profiles</span>
+            </a>
+            <a href="./analytics.html" class="flex flex-col items-center justify-center space-y-1 touch-target text-theme-secondary no-underline">
+                <i class="fas fa-chart-bar text-xl"></i><span class="text-xs">Stats</span>
+            </a>
+            <a href="./history.html" class="flex flex-col items-center justify-center space-y-1 touch-target text-theme-accent no-underline">
+                <i class="fas fa-book text-xl"></i><span class="text-xs">More</span>
+            </a>
+        </div>
+    </nav>
+    <script src="../assets/js/theme-switcher.js?v=5"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Load FAQ data dynamically
+        async function loadFAQData() {
+            const stats = await window.LateralEntry.API.stats();
+            if (!stats) return;
+            
+            // Update total count
+            const totalCountEl = document.getElementById('faq-total-count');
+            if (totalCountEl && stats.by_batch) {
+                const batchInfo = stats.by_batch.map(b => `${b.batch_year} (${b.count})`).join(', ');
+                totalCountEl.textContent = `${stats.total_appointees} appointees across ${stats.by_batch.length} batches: ${batchInfo}`;
+            }
+            
+            // Update ministries
+            const ministriesEl = document.getElementById('faq-ministries');
+            if (ministriesEl && stats.by_ministry) {
+                const topMinistries = stats.by_ministry.slice(0, 5)
+                    .map(m => `${m.ministry.replace('Ministry of ', '')} (${m.count})`)
+                    .join(', ');
+                const otherCount = stats.by_ministry.length - 5;
+                ministriesEl.textContent = `${topMinistries}, and ${otherCount} others across ${stats.by_ministry.length} ministries total.`;
+            }
+            
+            // Update positions
+            const positionsEl = document.getElementById('faq-positions');
+            if (positionsEl && stats.by_position) {
+                const positionInfo = stats.by_position
+                    .map(p => `${p.position} (${p.count} appointees)`)
+                    .join(', ');
+                positionsEl.textContent = `${positionInfo} level positions in specialized domains like FinTech, Cyber Law, Health, Education, Climate Change, etc.`;
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', loadFAQData);
+    </script>
+</body>
+</html>

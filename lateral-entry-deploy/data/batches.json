@@ -1,0 +1,23 @@
+[
+  {
+    "batch_year": 2019,
+    "count": 9,
+    "advertisement": "Advertisement No. 17/2018",
+    "phase": "1st Phase (2018)",
+    "description": "Pioneer batch of lateral entry appointees"
+  },
+  {
+    "batch_year": 2021,
+    "count": 36,
+    "advertisement": "Advertisement No. 47/2020",
+    "phase": "2nd Phase (2021)",
+    "description": "Largest cohort of lateral entry appointments"
+  },
+  {
+    "batch_year": 2023,
+    "count": 27,
+    "advertisement": "Advertisement No. 52 & 53/2023",
+    "phase": "3rd Phase (2023)",
+    "description": "Third phase of lateral entry appointments"
+  }
+]

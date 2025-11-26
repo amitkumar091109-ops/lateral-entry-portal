@@ -1,0 +1,28 @@
+{
+  "name": "Lateral Entry Portal - Government of India",
+  "short_name": "Lateral Entry",
+  "description": "Complete database of lateral entry appointees in Government of India",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["government", "education", "reference"],
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

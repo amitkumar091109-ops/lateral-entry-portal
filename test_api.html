@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>API Test</h1>
+    <div id="result">Testing...</div>
+    
+    <script src="./assets/js/main.js"></script>
+    <script>
+        async function test() {
+            const result = document.getElementById('result');
+            result.innerHTML = '<p>Starting tests...</p>';
+            
+            // Test stats
+            console.log('Testing stats endpoint...');
+            const stats = await window.LateralEntry.API.stats();
+            if (stats) {
+                result.innerHTML += `<p>✓ Stats loaded: ${stats.total_appointees} appointees, ${stats.by_batch.length} batches</p>`;
+            } else {
+                result.innerHTML += `<p>✗ Failed to load stats</p>`;
+                return;
+            }
+            
+            // Test entrants
+            console.log('Testing entrants endpoint...');
+            const entrants = await window.LateralEntry.API.entrants();
+            if (entrants) {
+                result.innerHTML += `<p>✓ Entrants loaded: ${entrants.total} total, ${entrants.entrants.length} in response</p>`;
+                result.innerHTML += `<p>First entrant: ${entrants.entrants[0].name}</p>`;
+            } else {
+                result.innerHTML += `<p>✗ Failed to load entrants</p>`;
+            }
+            
+            // Test batch detail
+            console.log('Testing batch 2021 endpoint...');
+            const batch2021 = await window.LateralEntry.API.batch(2021);
+            if (batch2021) {
+                result.innerHTML += `<p>✓ Batch 2021 loaded: ${batch2021.statistics.total} appointees</p>`;
+            } else {
+                result.innerHTML += `<p>✗ Failed to load batch 2021</p>`;
+            }
+        }
+        
+        // Wait for DOM to be ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', test);
+        } else {
+            test();
+        }
+    </script>
+</body>
+</html>

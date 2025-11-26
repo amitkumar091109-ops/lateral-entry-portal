@@ -1,0 +1,118 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    POSITION BADGE VISUAL GUIDE                           ║
+╔══════════════════════════════════════════════════════════════════════════╗
+
+┌────────────────────────────────────────────────────────────────────────┐
+│ JOINT SECRETARY - Diamond Badge (Highest Level)                       │
+├────────────────────────────────────────────────────────────────────────┤
+│                                                                        │
+│   ┌─────────────────────────────────────────┐                        │
+│   │  ◆ JOINT SECRETARY                      │  (Gold Gradient)       │
+│   └─────────────────────────────────────────┘                        │
+│                                                                        │
+│   Color:   #fbbf24 → #f59e0b (Bright Gold)                           │
+│   Icon:    ◆ Diamond                                                  │
+│   Border:  #d97706 (Dark Orange)                                      │
+│   Effect:  Golden glow shadow                                         │
+│   Text:    #78350f (Dark Brown)                                       │
+│                                                                        │
+└────────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────────┐
+│ DIRECTOR - Star Badge (Mid Level)                                     │
+├────────────────────────────────────────────────────────────────────────┤
+│                                                                        │
+│   ┌─────────────────────────────────────────┐                        │
+│   │  ★ DIRECTOR                             │  (Light Gold)          │
+│   └─────────────────────────────────────────┘                        │
+│                                                                        │
+│   Color:   #fcd34d → #fbbf24 (Light Gold)                            │
+│   Icon:    ★ Star                                                     │
+│   Border:  #f59e0b (Orange)                                           │
+│   Effect:  Golden glow shadow                                         │
+│   Text:    #92400e (Brown)                                            │
+│                                                                        │
+└────────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────────┐
+│ DEPUTY SECRETARY - Circle Badge (Entry Level)                         │
+├────────────────────────────────────────────────────────────────────────┤
+│                                                                        │
+│   ┌─────────────────────────────────────────┐                        │
+│   │  ● DEPUTY SECRETARY                     │  (Bronze)              │
+│   └─────────────────────────────────────────┘                        │
+│                                                                        │
+│   Color:   #d97706 → #b45309 (Bronze)                                │
+│   Icon:    ● Circle                                                   │
+│   Border:  #92400e (Dark Brown)                                       │
+│   Effect:  Bronze glow shadow                                         │
+│   Text:    #fef3c7 (Cream/Light)                                      │
+│                                                                        │
+└────────────────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                         THEME VARIATIONS                                 ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║  REGULAR THEME                                                           ║
+║  • Standard gold/bronze colors                                           ║
+║  • Professional appearance                                               ║
+║  • Clear hierarchy                                                       ║
+║                                                                          ║
+║  CYBERPUNK THEME                                                         ║
+║  • Enhanced neon glow effects                                            ║
+║  • Text shadows on icons                                                 ║
+║  • Stronger box-shadows with color                                       ║
+║  • Glassmorphism compatible                                              ║
+║                                                                          ║
+║  VINTAGE THEME                                                           ║
+║  • Inset shadows for paper texture depth                                 ║
+║  • Serif font compatibility                                              ║
+║  • Classic brown tones enhanced                                          ║
+║                                                                          ║
+║  MINIMALIST THEME                                                        ║
+║  • Monochrome grayscale gradients                                        ║
+║  • Black/gray borders                                                    ║
+║  • Minimal shadows (0 1px 3px)                                           ║
+║  • Clean, modern appearance                                              ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                       VISUAL HIERARCHY                                   ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║   Highest Priority    ◆ JOINT SECRETARY     (Brightest, Diamond)        ║
+║          ↓                                                               ║
+║   Mid Priority        ★ DIRECTOR            (Mid-tone, Star)            ║
+║          ↓                                                               ║
+║   Entry Level         ● DEPUTY SECRETARY    (Bronze, Circle)            ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                      WHERE BADGES APPEAR                                 ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║  ✓ Profile Cards (profiles.html)                                        ║
+║  ✓ Individual Profile Pages (profile-detail.html)                       ║
+║  ✓ Batch Pages (batch-2019.html, batch-2021.html, batch-2023.html)     ║
+║  ✓ Homepage Profile Cards (index.html)                                  ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                          CSS CLASSES                                     ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║  Base Class:        .position-badge                                      ║
+║  Joint Secretary:   .position-badge-js                                   ║
+║  Director:          .position-badge-director                             ║
+║  Deputy Secretary:  .position-badge-ds                                   ║
+║                                                                          ║
+║  Usage:                                                                  ║
+║  <span class="position-badge position-badge-js">Joint Secretary</span>  ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+Test the badges: https://prabhu.app/lateral-entry/test-position-badges.html

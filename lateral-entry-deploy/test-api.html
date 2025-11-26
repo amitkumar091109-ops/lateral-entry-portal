@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test - Lateral Entry Portal</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #f5f5f5; }
+        .test { background: white; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #3b82f6; }
+        .success { border-color: #10b981; }
+        .error { border-color: #ef4444; }
+        pre { background: #f9fafb; padding: 10px; border-radius: 4px; overflow-x: auto; }
+        h2 { color: #1f2937; }
+    </style>
+</head>
+<body>
+    <h1>Lateral Entry Portal - API Test</h1>
+    <div id="tests"></div>
+
+    <script src="./assets/js/main.js"></script>
+    <script>
+        const testsDiv = document.getElementById('tests');
+
+        async function runTest(name, testFn) {
+            const testDiv = document.createElement('div');
+            testDiv.className = 'test';
+            testDiv.innerHTML = `<h2>${name}</h2><p>Testing...</p>`;
+            testsDiv.appendChild(testDiv);
+
+            try {
+                const result = await testFn();
+                testDiv.className = 'test success';
+                testDiv.innerHTML = `
+                    <h2>✅ ${name}</h2>
+                    <pre>${JSON.stringify(result, null, 2).substring(0, 500)}...</pre>
+                `;
+            } catch (error) {
+                testDiv.className = 'test error';
+                testDiv.innerHTML = `
+                    <h2>❌ ${name}</h2>
+                    <pre>Error: ${error.message}\n${error.stack}</pre>
+                `;
+            }
+        }
+
+        async function runAllTests() {
+            await runTest('Load Stats', async () => {
+                const stats = await window.LateralEntry.API.stats();
+                if (!stats || !stats.total_appointees) throw new Error('Stats missing required fields');
+                return stats;
+            });
+
+            await runTest('Load Entrants', async () => {
+                const entrants = await window.LateralEntry.API.entrants();
+                if (!Array.isArray(entrants)) throw new Error('Entrants should be an array');
+                return { count: entrants.length, sample: entrants[0] };
+            });
+
+            await runTest('Load Batches', async () => {
+                const batches = await window.LateralEntry.API.batches();
+                if (!Array.isArray(batches)) throw new Error('Batches should be an array');
+                return batches;
+            });
+
+            await runTest('Load Batch 2023 Detail', async () => {
+                const batch = await window.LateralEntry.API.batch(2023);
+                if (!batch || !batch.entrants) throw new Error('Batch missing entrants');
+                return { year: batch.batch_year, count: batch.entrants.length };
+            });
+
+            await runTest('Load Recent Entrants (limit 6)', async () => {
+                const entrants = await window.LateralEntry.API.entrants({ limit: 6 });
+                if (!Array.isArray(entrants) || entrants.length > 6) throw new Error('Limit not working');
+                return { count: entrants.length, entrants };
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', runAllTests);
+    </script>
+</body>
+</html>

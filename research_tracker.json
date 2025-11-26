@@ -1,0 +1,27 @@
+{
+  "research_tracker": {
+    "total_profiles": 65,
+    "completed": 0,
+    "in_progress": 0,
+    "pending": 65,
+    "last_updated": "2025-11-25T14:30:00Z"
+  },
+  "profiles": [
+    {"id": 11, "name": "Amber Dubey", "position": "Joint Secretary", "department": "Civil Aviation", "batch": 2019, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 12, "name": "Arun Goel", "position": "Joint Secretary", "department": "Commerce", "batch": 2019, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 19, "name": "Bhushan Kumar", "position": "Joint Secretary", "department": "Ports Shipping and Waterways", "batch": 2019, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 17, "name": "Dinesh Dayanand Jagdale", "position": "Joint Secretary", "department": "New and Renewable Energy", "batch": 2019, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 13, "name": "Kakoli Ghosh", "position": "Joint Secretary", "department": "Department of Agriculture", "batch": 2019, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 14, "name": "Rajeev Saksena", "position": "Joint Secretary", "department": "Economic Affairs", "batch": 2019, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 16, "name": "Saurabh Mishra", "position": "Joint Secretary", "department": "Financial Services", "batch": 2019, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 15, "name": "Sujit Kumar Bajpayee", "position": "Joint Secretary", "department": "Environment Forest and Climate Change", "batch": 2019, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 18, "name": "Suman Prasad Singh", "position": "Joint Secretary", "department": "Road Transport and Highways", "batch": 2019, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 52, "name": "Balasubramanian Krishnamurthy", "position": "Joint Secretary", "department": "Revenue", "batch": 2021, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 51, "name": "Manish Chadha", "position": "Joint Secretary", "department": "Commerce", "batch": 2021, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 20, "name": "Samuel Praveen Kumar", "position": "Joint Secretary", "department": "Agriculture and Farmers Welfare", "batch": 2021, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 64, "name": "Ajay Kumar Arora", "position": "Joint Secretary", "department": "Legal Affairs", "batch": 2023, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 72, "name": "Madhu Sudana Sankar", "position": "Joint Secretary", "department": "Civil Aviation", "batch": 2023, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false},
+    {"id": 75, "name": "Manoj Muttathil", "position": "Joint Secretary", "department": "Financial Services", "batch": 2023, "priority": "high", "researched": false, "photo": false, "education": false, "experience": false, "linkedin": false, "updated": false}
+  ],
+  "notes": "Priority: Joint Secretaries first (15 profiles), then Directors (42 profiles), then Deputy Secretaries (8 profiles)"
+}

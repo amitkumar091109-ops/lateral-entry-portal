@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" id="page-description" content="Complete database of lateral entry appointees in Government of India - Verified profiles">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="manifest" href="manifest.json">
+    
+    <title>India Lateral Entry Portal | Government of India</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'gov-blue': '#2563eb',
+                        'gov-orange': '#ea580c',
+                        'gov-green': '#16a34a',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/themes.css?v=9">
+</head>
+<body class="bg-theme-secondary antialiased">
+
+    <!-- Header -->
+    <header class="bg-theme-card shadow-sm sticky top-0 z-40 border-b border-theme">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-landmark text-theme-accent text-2xl"></i>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-lg sm:text-xl font-bold text-theme-primary">Lateral Entry Portal</h1>
+                        <p class="text-xs text-theme-muted hidden sm:block">Government of India</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="./pages/profiles.html" class="text-theme-secondary hover:text-theme-accent px-3 py-2 rounded-md text-sm font-medium">
+                        All Profiles
+                    </a>
+                    <a href="./pages/history.html" class="text-theme-secondary hover:text-theme-accent px-3 py-2 rounded-md text-sm font-medium">
+                        History
+                    </a>
+                    <a href="./pages/analytics.html" class="text-theme-secondary hover:text-theme-accent px-3 py-2 rounded-md text-sm font-medium">
+                        Analytics
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-gov-blue to-blue-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <div class="text-center">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                    Lateral Entry Programme
+                </h2>
+                <p class="text-lg sm:text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                    Comprehensive database of lateral entry appointees bringing private sector expertise to government service
+                </p>
+                
+                <!-- Live Stats -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto" id="hero-stats">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-3xl sm:text-4xl font-bold" id="stat-total">-</div>
+                        <div class="text-sm sm:text-base text-blue-100 mt-1">Total Appointees</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-3xl sm:text-4xl font-bold" id="stat-batches">-</div>
+                        <div class="text-sm sm:text-base text-blue-100 mt-1">Batches</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-3xl sm:text-4xl font-bold" id="stat-ministries">-</div>
+                        <div class="text-sm sm:text-base text-blue-100 mt-1">Ministries</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-3xl sm:text-4xl font-bold" id="stat-positions">-</div>
+                        <div class="text-sm sm:text-base text-blue-100 mt-1">Positions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Lateral Entry -->
+    <section class="py-12 bg-theme-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-theme-primary mb-2">
+                    What is Lateral Entry?
+                </h2>
+                <div class="w-20 h-1 bg-theme-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-theme-secondary leading-relaxed mb-4">
+                        <strong>Lateral entry</strong> is the appointment of specialists from the private sector to senior positions in government, bringing domain expertise and fresh perspectives to public administration.
+                    </p>
+                    <p class="text-theme-secondary leading-relaxed mb-4">
+                        The scheme aims to augment manpower in critical areas where specialized knowledge and skills are required for effective policy formulation and implementation.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                            <i class="fas fa-check-circle mr-1"></i> Domain Expertise
+                        </span>
+                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                            <i class="fas fa-check-circle mr-1"></i> Fresh Perspectives
+                        </span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
+                            <i class="fas fa-check-circle mr-1"></i> Policy Innovation
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg p-8 border border-theme-card">
+                    <h3 class="font-semibold text-theme-primary mb-4 text-lg">Key Positions</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-theme-secondary">
+                            <i class="fas fa-user-tie text-theme-accent mr-3"></i>
+                            Joint Secretary (JS)
+                        </li>
+                        <li class="flex items-center text-theme-secondary">
+                            <i class="fas fa-user-tie text-theme-accent mr-3"></i>
+                            Director
+                        </li>
+                        <li class="flex items-center text-theme-secondary">
+                            <i class="fas fa-user-tie text-theme-accent mr-3"></i>
+                            Deputy Secretary
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Batches Overview -->
+    <section class="py-12 bg-theme-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-theme-primary mb-2">
+                    Appointment Batches
+                </h2>
+                <div class="w-20 h-1 bg-theme-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="batches-container">
+                <!-- Batch 2019 -->
+                <a href="./pages/batch-2019.html" class="block card-theme rounded-lg hover:shadow-xl transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-theme-primary">2019 Batch</h3>
+                                <p class="text-sm text-theme-muted">Advertisement No. 17/2018</p>
+                            </div>
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-users text-theme-accent text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-3xl font-bold text-theme-accent" id="batch-2019-count">-</span>
+                            <span class="text-sm text-theme-muted">Appointees</span>
+                        </div>
+                        <div class="mt-4 text-theme-secondary text-sm">
+                            <i class="fas fa-arrow-right text-theme-accent"></i>
+                            <span class="ml-2">View Details</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Batch 2021 -->
+                <a href="./pages/batch-2021.html" class="block card-theme rounded-lg hover:shadow-xl transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-theme-primary">2021 Batch</h3>
+                                <p class="text-sm text-theme-muted">Advertisement No. 47/2020</p>
+                            </div>
+                            <div class="bg-green-100 p-3 rounded-full">
+                                <i class="fas fa-users text-green-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-3xl font-bold text-green-600" id="batch-2021-count">-</span>
+                            <span class="text-sm text-theme-muted">Appointees</span>
+                        </div>
+                        <div class="mt-4 text-theme-secondary text-sm">
+                            <i class="fas fa-arrow-right text-green-600"></i>
+                            <span class="ml-2">View Details</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Batch 2023 -->
+                <a href="./pages/batch-2023.html" class="block card-theme rounded-lg hover:shadow-xl transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-theme-primary">2023 Batch</h3>
+                                <p class="text-sm text-theme-muted">Advertisement No. 52 & 53/2023</p>
+                            </div>
+                            <div class="bg-purple-100 p-3 rounded-full">
+                                <i class="fas fa-users text-purple-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-3xl font-bold text-purple-600" id="batch-2023-count">-</span>
+                            <span class="text-sm text-theme-muted">Appointees</span>
+                        </div>
+                        <div class="mt-4 text-theme-secondary text-sm">
+                            <i class="fas fa-arrow-right text-purple-600"></i>
+                            <span class="ml-2">View Details</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Appointments -->
+    <section class="py-12 bg-theme-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-theme-primary mb-2">
+                        Recent Appointments
+                    </h2>
+                    <div class="w-20 h-1 bg-theme-accent"></div>
+                </div>
+                <a href="./pages/profiles.html" class="text-theme-accent hover:text-blue-700 font-medium text-sm sm:text-base link-theme">
+                    View All <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="recent-appointments">
+                <!-- Loaded via JavaScript -->
+                <div class="col-span-full text-center py-12">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-theme-accent mx-auto"></div>
+                    <p class="text-theme-muted mt-4">Loading appointments...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-12 bg-gradient-to-r from-gov-blue to-blue-700 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-4">
+                Explore the Complete Database
+            </h2>
+            <p class="text-lg text-blue-100 mb-8" id="cta-text">
+                Browse verified profiles, view detailed analytics, and understand the impact of lateral entry
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="./pages/profiles.html" class="bg-white text-theme-accent hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
+                    <i class="fas fa-users mr-2"></i> Browse Profiles
+                </a>
+                <a href="./pages/analytics.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-theme-accent px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
+                    <i class="fas fa-chart-bar mr-2"></i> View Analytics
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-semibold text-white mb-4">About</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="./pages/history.html" class="hover:text-white">History</a></li>
+                        <li><a href="./pages/faq.html" class="hover:text-white">FAQ</a></li>
+                        <li><a href="./pages/2024-cancellation.html" class="hover:text-white">2024 Cancellation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Batches</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="./pages/batch-2019.html" class="hover:text-white">2019 Batch</a></li>
+                        <li><a href="./pages/batch-2021.html" class="hover:text-white">2021 Batch</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Data</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="./pages/profiles.html" class="hover:text-white">All Profiles</a></li>
+                        <li><a href="./pages/analytics.html" class="hover:text-white">Analytics</a></li>
+                        <li><a href="./pages/citations.html" class="hover:text-white">Citations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Resources</h3>
+                    <p class="text-sm text-gray-400 mb-2">
+                        Data sourced from official government records, PIB press releases, and verified media sources.
+                    </p>
+                    <p class="text-sm text-gray-400" id="footer-profile-count">
+                        <i class="fas fa-database mr-1"></i> <span>Loading...</span>
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+                <p>&copy; 2025 Lateral Entry Portal. Research-based public information database.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav id="mobile-nav" class="md:hidden bg-theme-card border-t border-theme">
+        <div class="grid grid-cols-4 h-16">
+            <a href="./index.html" class="flex flex-col items-center justify-center space-y-1 touch-target text-theme-accent">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-xs">Home</span>
+            </a>
+            <a href="./pages/profiles.html" class="flex flex-col items-center justify-center space-y-1 touch-target text-theme-muted">
+                <i class="fas fa-users text-xl"></i>
+                <span class="text-xs">Profiles</span>
+            </a>
+            <a href="./pages/analytics.html" class="flex flex-col items-center justify-center space-y-1 touch-target text-theme-muted">
+                <i class="fas fa-chart-bar text-xl"></i>
+                <span class="text-xs">Stats</span>
+            </a>
+            <a href="./pages/history.html" class="flex flex-col items-center justify-center space-y-1 touch-target text-theme-muted">
+                <i class="fas fa-book text-xl"></i>
+                <span class="text-xs">More</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script src="assets/js/theme-switcher.js?v=5"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Load hero stats and batch counts
+        async function loadHeroStats() {
+            const stats = await window.LateralEntry.API.stats();
+            if (stats) {
+                // Update meta description
+                const metaDesc = document.getElementById('page-description');
+                if (metaDesc) {
+                    const batchYears = stats.by_batch.map(b => b.batch_year).join(', ');
+                    metaDesc.setAttribute('content', `Complete database of ${stats.total_appointees} lateral entry appointees in Government of India - Verified profiles across ${batchYears} batches`);
+                }
+                
+                document.getElementById('stat-total').textContent = stats.total_appointees;
+                document.getElementById('stat-batches').textContent = stats.by_batch.length;
+                document.getElementById('stat-ministries').textContent = stats.by_ministry.length;
+                document.getElementById('stat-positions').textContent = stats.by_position.length;
+                
+                // Update CTA text dynamically
+                const ctaText = document.getElementById('cta-text');
+                if (ctaText) {
+                    ctaText.textContent = `Browse all ${stats.total_appointees} verified profiles, view detailed analytics, and understand the impact of lateral entry`;
+                }
+                
+                // Update footer count dynamically
+                const footerCount = document.getElementById('footer-profile-count');
+                if (footerCount) {
+                    footerCount.innerHTML = `<i class="fas fa-database mr-1"></i> ${stats.total_appointees} verified profiles`;
+                }
+                
+                // Update batch counts from stats data
+                if (stats.by_batch) {
+                    stats.by_batch.forEach(batch => {
+                        const element = document.getElementById(`batch-${batch.batch_year}-count`);
+                        if (element) {
+                            element.textContent = batch.count;
+                        }
+                    });
+                }
+            }
+        }
+
+        // Load recent appointments
+        async function loadRecentAppointments() {
+            const container = document.getElementById('recent-appointments');
+            const data = await window.LateralEntry.API.entrants({ limit: 6 });
+            
+            // Handle both array and object responses
+            const entrants = Array.isArray(data) ? data : (data?.entrants || []);
+            
+            if (!entrants || entrants.length === 0) {
+                window.LateralEntry.showError(container, 'Failed to load appointments');
+                return;
+            }
+            
+            container.innerHTML = entrants.slice(0, 6).map(entrant => 
+                window.LateralEntry.createEntrantCard(entrant)
+            ).join('');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            loadHeroStats();
+            loadRecentAppointments();
+        });
+    </script>
+</body>
+</html>
