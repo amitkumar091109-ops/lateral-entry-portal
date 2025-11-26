@@ -1,7 +1,7 @@
 {
-  "name": "Lateral Entry Portal - Government of India",
-  "short_name": "Lateral Entry",
-  "description": "Complete database of lateral entry appointees in Government of India",
+  "name": "Lateral Entry Officers Database - Government of India",
+  "short_name": "LE Officers DB",
+  "description": "Official information database of lateral entry officers in Government of India (not an application portal)",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

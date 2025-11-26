@@ -1,4 +1,6 @@
-# Deployment Guide for Lateral Entry Portal
+# Deployment Guide for Lateral Entry Officers Database
+
+> **Important:** This is an information database, NOT an application portal.
 
 ## Quick Fix Applied - Static JSON Fallback
 

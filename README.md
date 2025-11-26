@@ -1,6 +1,8 @@
-# India Lateral Entry Portal
+# Lateral Entry Officers Database
 
-A comprehensive, modern web platform showcasing lateral entrants to the Government of India across three batches (2019, 2021, 2024). This portal provides detailed profiles, achievements, and career trajectories of distinguished professionals who have joined the civil services through lateral entry.
+> **Important Notice:** This is an **information database only** - NOT an application portal. To apply for lateral entry positions, visit the [UPSC Official Website](https://www.upsc.gov.in/).
+
+A comprehensive, modern web platform showcasing lateral entry officers in the Government of India across three batches (2019, 2021, 2024). This database provides verified profiles, achievements, and career information of distinguished professionals who have joined the civil services through lateral entry.
 
 ## 🌟 Features
 

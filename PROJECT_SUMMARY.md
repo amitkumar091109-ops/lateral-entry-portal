@@ -1,8 +1,10 @@
-# India Lateral Entry Portal - Project Summary
+# Lateral Entry Officers Database - Project Summary
+
+> **Important:** This is an information database, NOT an application portal. For applications, visit [UPSC Official Website](https://www.upsc.gov.in/).
 
 ## 🎯 Project Overview
 
-Successfully created a comprehensive, modern web platform for Government of India lateral entrants across three batches (2019, 2021, 2024). The portal features real data, advanced search capabilities, mobile-friendly design, and extensive analytics.
+Successfully created a comprehensive, modern information database for Government of India lateral entry officers across three batches (2019, 2021, 2024). The platform features verified data, advanced search capabilities, mobile-friendly design, and extensive analytics.
 
 ## ✅ Deliverables Completed
 

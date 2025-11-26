@@ -14,11 +14,11 @@ const BASE_PATH = window.location.pathname.includes('/lateral-entry/')
     : '/';
 
 // Log configuration on startup
-console.log('=== Lateral Entry Portal Configuration ===');
+console.log('=== Lateral Entry Officers Database Configuration ===');
 console.log('Hostname:', window.location.hostname);
 console.log('API URL:', API_BASE_URL || 'Using static JSON files');
 console.log('Base Path:', BASE_PATH);
-console.log('==========================================');
+console.log('======================================================');
 
 // API Helper Functions
 const API = {
