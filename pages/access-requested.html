@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Requested - Lateral Entry Officers Database</title>
+    <link rel="icon" type="image/png" href="/assets/images/emblem.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        @keyframes checkmark {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .checkmark-animation {
+            animation: checkmark 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center gap-3">
+                <img src="/assets/images/emblem.png" alt="Government of India" class="h-12 w-12">
+                <div>
+                    <h1 class="text-xl font-bold text-gray-900">Lateral Entry Officers Database</h1>
+                    <p class="text-sm text-gray-600">Government of India</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-2xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <!-- Success Icon -->
+            <div class="flex justify-center mb-6">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center checkmark-animation">
+                    <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Title -->
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Access Request Submitted Successfully!</h2>
+                <p class="text-gray-600">Thank you for your interest in the Lateral Entry Officers Database</p>
+            </div>
+
+            <!-- Info Box -->
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-sm font-medium text-blue-800">What happens next?</h3>
+                        <div class="mt-2 text-sm text-blue-700">
+                            <p>Your request has been sent to the administrator for review. You will receive an email notification at <strong id="userEmail"></strong> once your account has been approved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Steps -->
+            <div class="mb-6">
+                <h3 class="font-semibold text-gray-900 mb-4">Next Steps</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-semibold">
+                            1
+                        </div>
+                        <div class="flex-1 pt-1">
+                            <p class="font-medium text-gray-900">Administrator Review</p>
+                            <p class="text-sm text-gray-600">Your request will be reviewed by an administrator within 1-2 business days</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-semibold">
+                            2
+                        </div>
+                        <div class="flex-1 pt-1">
+                            <p class="font-medium text-gray-900">Email Notification</p>
+                            <p class="text-sm text-gray-600">You'll receive an email when your account is approved or if additional information is needed</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-semibold">
+                            3
+                        </div>
+                        <div class="flex-1 pt-1">
+                            <p class="font-medium text-gray-900">Access Granted</p>
+                            <p class="text-sm text-gray-600">Once approved, you can sign in and access all features of the database</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Notes -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-sm font-medium text-yellow-800">Important</h3>
+                        <div class="mt-2 text-sm text-yellow-700">
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Please check your email regularly (including spam folder)</li>
+                                <li>This database is for <strong>Lateral Entry Officers only</strong></li>
+                                <li>Approval is at the discretion of the administrator</li>
+                                <li>Processing typically takes 1-2 business days</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a href="/pages/pending-approval.html" class="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-center">
+                    View Status
+                </a>
+                <a href="/" class="flex-1 bg-gray-200 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-300 transition-colors font-medium text-center">
+                    Back to Home
+                </a>
+            </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
+            <h3 class="font-bold text-gray-900 mb-4">While You Wait</h3>
+            <div class="space-y-3">
+                <a href="/" class="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <h4 class="font-semibold text-gray-900 mb-1">Browse Public Profiles</h4>
+                    <p class="text-sm text-gray-600">View public information about lateral entry officers</p>
+                </a>
+                <a href="/pages/analytics.html" class="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <h4 class="font-semibold text-gray-900 mb-1">Explore Analytics</h4>
+                    <p class="text-sm text-gray-600">See statistics and insights about lateral entry appointments</p>
+                </a>
+                <a href="/pages/faq.html" class="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <h4 class="font-semibold text-gray-900 mb-1">Read FAQs</h4>
+                    <p class="text-sm text-gray-600">Learn more about lateral entry and how to apply</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Load user email if available
+        async function loadUserEmail() {
+            try {
+                const response = await fetch('/api/auth/status', {
+                    credentials: 'include'
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('userEmail').textContent = data.email;
+                }
+            } catch (error) {
+                // Silently fail, email display is optional
+                document.getElementById('userEmail').textContent = 'your registered email';
+            }
+        }
+
+        loadUserEmail();
+    </script>
+</body>
+</html>

@@ -58,6 +58,10 @@ class Config:
     PARALLEL_MONITOR_URL = os.getenv('PARALLEL_MONITOR_URL')
     PARALLEL_MONITOR_API_KEY = os.getenv('PARALLEL_MONITOR_API_KEY')
 
+    # Parallel AI (for job monitoring, news, social feeds)
+    PARALLEL_AI_API_URL = os.getenv('PARALLEL_AI_API_URL', 'https://api.parallelai.com/v1')
+    PARALLEL_AI_API_KEY = os.getenv('PARALLEL_AI_API_KEY')
+
     # LinkedIn OAuth
     LINKEDIN_CLIENT_ID = os.getenv('LINKEDIN_CLIENT_ID')
     LINKEDIN_CLIENT_SECRET = os.getenv('LINKEDIN_CLIENT_SECRET')
